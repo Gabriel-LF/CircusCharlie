@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject mainMenu;
+
     public static LevelManager Instance;
     public GameObject fireStage;
 
@@ -30,7 +33,7 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel()
     {
         rng = Random.Range(0, 5);
-        if(rng == 0)
+        if (rng == 0)
             fireStage.GetComponent<FireStage>().StartLevel();
         if (rng == 1)
             fireStage.GetComponent<FireStage>().StartLevel();
@@ -40,5 +43,12 @@ public class LevelManager : MonoBehaviour
             fireStage.GetComponent<FireStage>().StartLevel();
         if (rng == 4)
             fireStage.GetComponent<FireStage>().StartLevel();
+    }
+
+    public void Restart()
+    {
+        player.transform.position = new Vector3(0, 0, 0);
+        ObjectPooler.Instance.ResetPool();
+        mainMenu.SetActive(true);
     }
 }

@@ -65,4 +65,15 @@ public class ObjectPooler : MonoBehaviour
         return objectToSpawn;
     }
 
+    public void ResetPool()
+    {
+        foreach (Pool pool in pools)
+        {
+            foreach (GameObject go in ObjectPooler.Instance.poolDictionary[pool.tag])
+            {
+                go.SetActive(false);
+            }
+        }
+    }
+
 }

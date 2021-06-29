@@ -22,6 +22,8 @@ public class FireStage : MonoBehaviour
             spawnDistance += 10;
             i++;
         } while (i < circlesToSpawn);
+        if(i >= circlesToSpawn)
+            ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance, 0, 0), Quaternion.Euler(0, 0, 0));
         int a = 0;
         do
         {
@@ -34,7 +36,7 @@ public class FireStage : MonoBehaviour
     public void SpawnObstacle()
     {
         RandomizeObstacle();
-        ObjectPooler.Instance.SpawnFromPool(randomTag, new Vector3(spawnDistance, 5, 0), Quaternion.Euler(0, 0, 0));
+        ObjectPooler.Instance.SpawnFromPool(randomTag, new Vector3(spawnDistance, 4, 0), Quaternion.Euler(0, 0, 0));
     }
     public void SpawnObstacle2()
     {

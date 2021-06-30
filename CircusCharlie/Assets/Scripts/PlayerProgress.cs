@@ -41,6 +41,7 @@ public class PlayerProgress : MonoBehaviour
 
     IEnumerator Death()
     {
+        gameObject.GetComponent<PlayerAnimation>().anim.SetTrigger("Death");
         yield return new WaitForSeconds(3);
         if (currentScore > MainMenu.Instance.maxScore)
         {

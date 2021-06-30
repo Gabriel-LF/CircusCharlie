@@ -19,7 +19,7 @@ public class jump : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -28,11 +28,11 @@ public class jump : MonoBehaviour
         ModifyPhysics();
         onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLenght, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLenght, groundLayer);
 
-        if(Input.GetButtonDown("Jump") )
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1"))
         {
             jumpTimer = Time.time + jumpDelay;
         }
-
+        gameObject.GetComponent<PlayerAnimation>().anim.SetBool("isMountJumping", onGround);
     }
 
     private void FixedUpdate()

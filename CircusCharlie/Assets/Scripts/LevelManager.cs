@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
         fireStage.GetComponent<FireStage>().StartLevel();
         //monkeyStage.GetComponent<MonkeyStage>().StartLevel();
 
+        player.GetComponent<PlayerAnimation>().menuStage = false;
         player.GetComponent<PlayerAnimation>().fireStage = true;
         player.GetComponent<PlayerAnimation>().UpdateAnim();
     }
@@ -37,14 +38,19 @@ public class LevelManager : MonoBehaviour
         if (rng == 0)
         {
             fireStage.GetComponent<FireStage>().StartLevel();
+            player.GetComponent<PlayerAnimation>().menuStage = false;
             player.GetComponent<PlayerAnimation>().fireStage = true;
         } else { player.GetComponent<PlayerAnimation>().fireStage = false; }
+
         if (rng == 1)
             monkeyStage.GetComponent<MonkeyStage>().StartLevel();
+
         if (rng == 2)
             fireStage.GetComponent<FireStage>().StartLevel();
+
         if (rng == 3)
             fireStage.GetComponent<FireStage>().StartLevel();
+
         if (rng == 4)
             fireStage.GetComponent<FireStage>().StartLevel();
 
@@ -66,6 +72,10 @@ public class LevelManager : MonoBehaviour
         ObjectPooler.Instance.ResetPool();
         mainMenu.SetActive(true);
         playerPosition = 0;
+
+        player.GetComponent<PlayerAnimation>().menuStage = true;
+        player.GetComponent<PlayerAnimation>().fireStage = false;
+        player.GetComponent<PlayerAnimation>().UpdateAnim();
     }
 
     IEnumerator RopeAnim()

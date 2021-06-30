@@ -6,12 +6,26 @@ public class PlayerAnimation : MonoBehaviour
 {
     public Animator anim;
 
+    public bool menuStage;
+
     public bool fireStage;
     public GameObject lion;
 
+    public bool monkeyStage;
+
+    public bool ballStage;
+
+    public bool horseStage;
+
+    public bool swingStage;
+
     public void UpdateAnim()
     {
-        if(fireStage)
+        if (menuStage)
+        {
+            anim.SetTrigger("Idle");
+        }
+        if (fireStage)
         {
             lion.SetActive(true);
             anim.SetTrigger("Mount");

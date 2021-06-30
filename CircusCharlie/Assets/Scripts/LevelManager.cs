@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager Instance;
     public GameObject fireStage;
+    public GameObject monkeyStage;
 
     public float playerPosition = 0;
     public int rng;
@@ -28,6 +29,7 @@ public class LevelManager : MonoBehaviour
     public void StartGame()
     {
         fireStage.GetComponent<FireStage>().StartLevel();
+        //monkeyStage.GetComponent<MonkeyStage>().StartLevel();
     }
     
     public void LoadLevel()
@@ -36,7 +38,7 @@ public class LevelManager : MonoBehaviour
         if (rng == 0)
             fireStage.GetComponent<FireStage>().StartLevel();
         if (rng == 1)
-            fireStage.GetComponent<FireStage>().StartLevel();
+            monkeyStage.GetComponent<MonkeyStage>().StartLevel();
         if (rng == 2)
             fireStage.GetComponent<FireStage>().StartLevel();
         if (rng == 3)

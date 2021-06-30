@@ -27,8 +27,8 @@ public class PlayerProgress : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Finish"))
         {
-            LevelManager.Instance.LoadLevel();
             LevelManager.Instance.playerPosition = gameObject.transform.position.x;
+            LevelManager.Instance.LoadLevel();
         }
         if (hit.gameObject.CompareTag("Hazard"))
         {

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireStage : MonoBehaviour
+public class MonkeyStage : MonoBehaviour
 {
     public int rng;
     public string randomTag;
-    public int circlesToSpawn;
-    public int jarsToSpawn;
+    public int monkeysToSpawn;
+    public int bluesToSpawn;
 
     public float spawnDistance;
     public float spawnDistance2;
@@ -17,38 +17,29 @@ public class FireStage : MonoBehaviour
         spawnDistance = LevelManager.Instance.playerPosition + 30;
         spawnDistance2 = LevelManager.Instance.playerPosition + 40;
         int i = 0;
-        do {
+        do
+        {
             SpawnObstacle();
             spawnDistance += 10;
             i++;
-        } while (i < circlesToSpawn);
-        if(i >= circlesToSpawn)
+        } while (i < monkeysToSpawn);
+        if (i >= monkeysToSpawn)
             ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance, 0, 0), Quaternion.Euler(0, 0, 0));
         int a = 0;
         do
         {
             SpawnObstacle2();
-            spawnDistance2 += 20;
+            spawnDistance2 += 40;
             a++;
-        } while (a < jarsToSpawn);
+        } while (a < bluesToSpawn);
     }
 
     public void SpawnObstacle()
     {
-        RandomizeObstacle();
-        ObjectPooler.Instance.SpawnFromPool(randomTag, new Vector3(spawnDistance, 3, 0), Quaternion.Euler(0, 0, 0));
+        ObjectPooler.Instance.SpawnFromPool("Monkey", new Vector3(spawnDistance, 4, 0), Quaternion.Euler(0, 0, 0));
     }
     public void SpawnObstacle2()
     {
-        ObjectPooler.Instance.SpawnFromPool("FireJar", new Vector3(spawnDistance2, 0, 0), Quaternion.Euler(0, 0, 0));
-    }
-
-    public void RandomizeObstacle()
-    {
-        rng = Random.Range(0, 3);
-        if (rng < 2)
-            randomTag = "BigCircle";
-        if (rng == 2)
-            randomTag = "SmallCircle";
+        ObjectPooler.Instance.SpawnFromPool("BlueMonkey", new Vector3(spawnDistance2, 4, 0), Quaternion.Euler(0, 0, 0));
     }
 }

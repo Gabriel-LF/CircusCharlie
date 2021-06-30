@@ -34,21 +34,40 @@ public class PlayerProgress : MonoBehaviour
         }
         if (hit.gameObject.CompareTag("Hazard") && !imortal)
         {
-            gameObject.GetComponent<PlayerMove>().dontMove = true;
             StartCoroutine(Death());
+        }
+    }
+    void OnCollisionEnter2D(Collision2D hit)
+    {
+        if (hit.gameObject.CompareTag("Hazard") && !imortal)
+        {
+            StartCoroutine(Death());
+        }
+        if (hit.gameObject.CompareTag("Jumper"))
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+        }
+        if (hit.gameObject.tag == "ball")
+        {
+            gameObject.GetComponent<PlayerMove>().dontMove = true;
+            this.gameObject.transform.parent = hit.gameObject.transform;
+            hit.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, 0);
         }
     }
 
     IEnumerator Death()
     {
+        gameObject.GetComponent<PlayerMove>().dontMove = true;
         gameObject.GetComponent<PlayerAnimation>().anim.SetTrigger("Death");
+        imortal = true;
         yield return new WaitForSeconds(3);
         if (currentScore > MainMenu.Instance.maxScore)
         {
             MainMenu.Instance.maxScore = currentScore;
             MainMenu.Instance.scoreText.text = (MainMenu.Instance.maxScore.ToString()+ "m");
             PlayerPrefs.SetInt("MaxScore", MainMenu.Instance.maxScore);
-        }  
+        }
+        imortal = false;
         LevelManager.Instance.Restart();
     }
 }

@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     public GameObject fireStage;
     public GameObject monkeyStage;
+    public GameObject horseStage;
 
     public GameObject rope;
 
@@ -24,8 +25,10 @@ public class LevelManager : MonoBehaviour
 
     public void StartGame()
     {
+        //player.GetComponent<PlayerAnimation>().horseStage = true;
         fireStage.GetComponent<FireStage>().StartLevel();
         //monkeyStage.GetComponent<MonkeyStage>().StartLevel();
+        //horseStage.GetComponent<HorseStage>().StartLevel();
 
         player.GetComponent<PlayerAnimation>().menuStage = false;
         player.GetComponent<PlayerAnimation>().fireStage = true;
@@ -34,7 +37,7 @@ public class LevelManager : MonoBehaviour
     
     public void LoadLevel()
     {
-        rng = Random.Range(0, 2);
+        rng = Random.Range(0, 3);
         if (rng == 0)
         {
             fireStage.GetComponent<FireStage>().StartLevel();
@@ -50,7 +53,10 @@ public class LevelManager : MonoBehaviour
         } else { StartCoroutine(RopeAnim()); player.GetComponent<PlayerAnimation>().monkeyStage = false; }
             
         if (rng == 2)
-            fireStage.GetComponent<FireStage>().StartLevel();
+        {
+            horseStage.GetComponent<HorseStage>().StartLevel();
+            player.GetComponent<PlayerAnimation>().horseStage = true;
+        } else { player.GetComponent<PlayerAnimation>().horseStage = false; }
 
         if (rng == 3)
             fireStage.GetComponent<FireStage>().StartLevel();

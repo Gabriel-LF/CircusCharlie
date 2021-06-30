@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hazard
+  - Jumper
   layers:
   - Default
   - TransparentFX

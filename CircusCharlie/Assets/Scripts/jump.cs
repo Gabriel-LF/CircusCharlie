@@ -66,8 +66,9 @@ public class jump : MonoBehaviour
             if(rb.velocity.y < 0)
             {
                 rb.gravityScale = gravity * fallMultiplier;
-            } else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+            } else if (rb.velocity.y > 0)
             {
+                if(!Input.GetButton("Jump"))
                 rb.gravityScale = gravity * (fallMultiplier / 2);
             }
         }

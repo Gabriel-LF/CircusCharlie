@@ -16,6 +16,7 @@ public class PlayerAnimation : MonoBehaviour
     public bool ballStage;
 
     public bool horseStage;
+    public GameObject horse;
 
     public bool swingStage;
 
@@ -29,9 +30,13 @@ public class PlayerAnimation : MonoBehaviour
         {
             lion.SetActive(true);
             anim.SetTrigger("Mount");
-        }
-        else { lion.SetActive(false); }
+        } else { lion.SetActive(false); }
         if (monkeyStage)
             anim.SetTrigger("Walk");
+        if (horseStage)
+        {
+            horse.SetActive(true);
+            anim.SetTrigger("HorseMount");
+        } else { horse.SetActive(false); }
     }
 }

@@ -12,8 +12,13 @@ public class MonkeyStage : MonoBehaviour
     public float spawnDistance;
     public float spawnDistance2;
 
+    public Transform player;
+    public Transform rope;
+
     public void StartLevel()
     {
+        StartCoroutine(RopeAnim());
+        
         spawnDistance = LevelManager.Instance.playerPosition + 30;
         spawnDistance2 = LevelManager.Instance.playerPosition + 40;
         int i = 0;
@@ -41,5 +46,12 @@ public class MonkeyStage : MonoBehaviour
     public void SpawnObstacle2()
     {
         ObjectPooler.Instance.SpawnFromPool("BlueMonkey", new Vector3(spawnDistance2, 4, 0), Quaternion.Euler(0, 0, 0));
+    }
+
+    IEnumerator RopeAnim()
+    {
+        rope.position = new Vector2(player.position.x + 90, 3.5f);
+        yield return new WaitForSeconds(0.5f);
+        player.position = new Vector2(player.position.x, 4.13f);
     }
 }

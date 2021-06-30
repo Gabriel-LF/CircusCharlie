@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
     public int maxScore;
     public Text scoreText;
 
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +23,10 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartGame()
+    {
+        player.GetComponent<PlayerMove>().dontMove = false;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class FireStage : MonoBehaviour
@@ -12,8 +13,12 @@ public class FireStage : MonoBehaviour
     public float spawnDistance;
     public float spawnDistance2;
 
+    public Transform player;
+
     public void StartLevel()
     {
+        player.position = new Vector2(player.position.x, 0);
+
         spawnDistance = LevelManager.Instance.playerPosition + 30;
         spawnDistance2 = LevelManager.Instance.playerPosition + 40;
         int i = 0;

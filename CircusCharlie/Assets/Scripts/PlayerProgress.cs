@@ -10,6 +10,8 @@ public class PlayerProgress : MonoBehaviour
     public int currentScore;
     public Text scoreText;
 
+    public bool imortal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +32,9 @@ public class PlayerProgress : MonoBehaviour
             LevelManager.Instance.playerPosition = gameObject.transform.position.x;
             LevelManager.Instance.LoadLevel();
         }
-        if (hit.gameObject.CompareTag("Hazard"))
+        if (hit.gameObject.CompareTag("Hazard") && !imortal)
         {
+            gameObject.GetComponent<PlayerMove>().dontMove = true;
             StartCoroutine(Death());
         }
     }

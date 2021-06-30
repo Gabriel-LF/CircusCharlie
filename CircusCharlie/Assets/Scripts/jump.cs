@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class jump : MonoBehaviour
 {
-
     public LayerMask groundLayer;
     public bool onGround;
     private float jumpTimer;
@@ -17,7 +16,6 @@ public class jump : MonoBehaviour
     public float gravity = 1;
     public float fallMultiplier = 5;
     public float linearDrag = 4;
-
 
     void Start()
     {
@@ -47,10 +45,12 @@ public class jump : MonoBehaviour
 
     void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
-        rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-        jumpTimer = 0;
-
+        if(gameObject.GetComponent<PlayerMove>().dontMove == false)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+            jumpTimer = 0;
+        }
     }
 
     void ModifyPhysics()

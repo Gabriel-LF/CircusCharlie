@@ -38,13 +38,17 @@ public class LevelManager : MonoBehaviour
         if (rng == 0)
         {
             fireStage.GetComponent<FireStage>().StartLevel();
-            player.GetComponent<PlayerAnimation>().menuStage = false;
             player.GetComponent<PlayerAnimation>().fireStage = true;
         } else { player.GetComponent<PlayerAnimation>().fireStage = false; }
 
         if (rng == 1)
+        {
             monkeyStage.GetComponent<MonkeyStage>().StartLevel();
-
+            rope.SetActive(true);
+            rope.GetComponent<Animator>().SetTrigger("RopeIn");
+            player.GetComponent<PlayerAnimation>().monkeyStage = true;
+        } else { StartCoroutine(RopeAnim()); player.GetComponent<PlayerAnimation>().monkeyStage = false; }
+            
         if (rng == 2)
             fireStage.GetComponent<FireStage>().StartLevel();
 
@@ -53,15 +57,6 @@ public class LevelManager : MonoBehaviour
 
         if (rng == 4)
             fireStage.GetComponent<FireStage>().StartLevel();
-
-        if (rng == 1)
-        {
-            rope.SetActive(true);
-            rope.GetComponent<Animator>().SetTrigger("RopeIn");
-        }
-        else {
-            StartCoroutine(RopeAnim());
-        }
 
         player.GetComponent<PlayerAnimation>().UpdateAnim();
     }
@@ -75,6 +70,10 @@ public class LevelManager : MonoBehaviour
 
         player.GetComponent<PlayerAnimation>().menuStage = true;
         player.GetComponent<PlayerAnimation>().fireStage = false;
+        player.GetComponent<PlayerAnimation>().monkeyStage = false;
+        player.GetComponent<PlayerAnimation>().ballStage = false;
+        player.GetComponent<PlayerAnimation>().horseStage = false;
+        player.GetComponent<PlayerAnimation>().swingStage = false;
         player.GetComponent<PlayerAnimation>().UpdateAnim();
     }
 

@@ -31,5 +31,7 @@ public class PlayerAnimation : MonoBehaviour
             anim.SetTrigger("Mount");
         }
         else { lion.SetActive(false); }
+        if (monkeyStage)
+            anim.SetTrigger("Walk");
     }
 }

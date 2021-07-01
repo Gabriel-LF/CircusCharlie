@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using UnityEngine.EventSystems;
 
 public class jump : MonoBehaviour
 {
@@ -23,8 +24,6 @@ public class jump : MonoBehaviour
     public Transform ballPosition;
     public float ballTimer;
 
-    public bool hasStarted = false;
-    public float beginTimer;
     public Animator anim;
 
     void Start()
@@ -40,8 +39,8 @@ public class jump : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1"))
         {
-            if(beginTimer > 1)
-            jumpTimer = Time.time + jumpDelay;
+            if (!isMouseOveUI())
+                jumpTimer = Time.time + jumpDelay;
         }
         gameObject.GetComponent<PlayerAnimation>().anim.SetBool("isMountJumping", onGround);
         anim.SetBool("isGrounded", onGround);
@@ -51,9 +50,6 @@ public class jump : MonoBehaviour
 
         if (!hasBall && gameObject.GetComponent<PlayerAnimation>().ballStage == true)
             ballTimer += Time.deltaTime;
-
-        if (hasStarted)
-            beginTimer += Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -113,9 +109,8 @@ public class jump : MonoBehaviour
         Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLenght);
     }
 
-    public void Unstart()
+    private bool isMouseOveUI()
     {
-        hasStarted = true;
-        beginTimer = 0;
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }

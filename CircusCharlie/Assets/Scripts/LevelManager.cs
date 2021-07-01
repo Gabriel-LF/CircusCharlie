@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     public GameObject player;
     public GameObject mainMenu;
+    public GameObject gameUI;
 
     public static LevelManager Instance;
     public GameObject fireStage;
@@ -39,7 +40,7 @@ public class LevelManager : MonoBehaviour
     
     public void LoadLevel()
     {
-        rng = Random.Range(3, 4);
+        rng = Random.Range(0, 4);
         if (rng == 0)
         {
             fireStage.GetComponent<FireStage>().StartLevel();
@@ -78,6 +79,7 @@ public class LevelManager : MonoBehaviour
         player.transform.position = new Vector3(0, 0, 0);
         ObjectPooler.Instance.ResetPool();
         mainMenu.SetActive(true);
+        gameUI.SetActive(false);
         playerPosition = 0;
 
         player.GetComponent<PlayerAnimation>().menuStage = true;
@@ -88,10 +90,8 @@ public class LevelManager : MonoBehaviour
         player.GetComponent<PlayerAnimation>().swingStage = false;
         player.GetComponent<PlayerAnimation>().UpdateAnim();
 
-        player.GetComponent<jump>().hasStarted = false;
         player.GetComponent<jump>().hasBall = false;
         player.GetComponent<jump>().ballTimer = 0;
-        player.GetComponent<jump>().beginTimer = 0;
     }
 
     IEnumerator RopeAnim()

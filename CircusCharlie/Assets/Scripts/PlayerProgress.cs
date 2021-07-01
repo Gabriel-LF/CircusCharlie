@@ -29,6 +29,7 @@ public class PlayerProgress : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Finish"))
         {
+            ObjectPooler.Instance.SpawnFromPool("Confete", new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), Quaternion.Euler(0, 0, 0));
             LevelManager.Instance.playerPosition = gameObject.transform.position.x;
             LevelManager.Instance.LoadLevel();
         }
@@ -46,7 +47,6 @@ public class PlayerProgress : MonoBehaviour
         if (hit.gameObject.CompareTag("Jumper"))
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
-            hit.gameObject.GetComponentInChildren<Animator>().SetTrigger("Pula");
         }
         if (hit.gameObject.tag == "ball")
         {

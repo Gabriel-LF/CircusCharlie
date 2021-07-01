@@ -24,6 +24,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void UpdateAnim()
     {
+        ObjectPooler.Instance.SpawnFromPool("Confete", new Vector3(player.position.x + 1, player.position.y, player.position.z), Quaternion.Euler(0, 0, 0));
         if (menuStage)
         {
             anim.SetTrigger("Idle");

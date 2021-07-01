@@ -43,6 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 817014183854051750}
   - component: {fileID: 1967881877879432848}
+  - component: {fileID: 1392425299205834823}
   m_Layer: 0
   m_Name: Jumper
   m_TagString: Jumper
@@ -90,6 +91,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.923279, y: 0.25}
   m_EdgeRadius: 0
+--- !u!114 &1392425299205834823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056245489371877186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96ea977b3bef8e428c80cd14d4ecb4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 4560962522940190742}
 --- !u!1 &4560962522940190742
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +116,7 @@ GameObject:
   - component: {fileID: 8987702061062036582}
   - component: {fileID: 2076911186232780875}
   m_Layer: 0
-  m_Name: Trampolin_1
+  m_Name: Trampolin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

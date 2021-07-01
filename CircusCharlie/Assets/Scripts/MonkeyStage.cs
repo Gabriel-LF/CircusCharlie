@@ -52,6 +52,8 @@ public class MonkeyStage : MonoBehaviour
     {
         rope.position = new Vector2(player.position.x + 90, 3.5f);
         yield return new WaitForSeconds(0.5f);
+        ObjectPooler.Instance.SpawnFromPool("Confete", new Vector3(player.position.x + 1, player.position.y, player.position.z), Quaternion.Euler(0, 0, 0));
         player.position = new Vector2(player.position.x, 4.13f);
+        ObjectPooler.Instance.SpawnFromPool("Confete", new Vector3(player.position.x + 1, player.position.y, player.position.z), Quaternion.Euler(0, 0, 0));
     }
 }

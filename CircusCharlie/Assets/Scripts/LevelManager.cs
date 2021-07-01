@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public GameObject fireStage;
     public GameObject monkeyStage;
     public GameObject horseStage;
+    public GameObject ballStage;
 
     public GameObject rope;
 
@@ -25,10 +26,11 @@ public class LevelManager : MonoBehaviour
 
     public void StartGame()
     {
-        //player.GetComponent<PlayerAnimation>().horseStage = true;
+        //player.GetComponent<PlayerAnimation>().ballStage = true;
         fireStage.GetComponent<FireStage>().StartLevel();
         //monkeyStage.GetComponent<MonkeyStage>().StartLevel();
         //horseStage.GetComponent<HorseStage>().StartLevel();
+        //ballStage.GetComponent<BallStage>().StartLevel();
 
         player.GetComponent<PlayerAnimation>().menuStage = false;
         player.GetComponent<PlayerAnimation>().fireStage = true;
@@ -37,7 +39,7 @@ public class LevelManager : MonoBehaviour
     
     public void LoadLevel()
     {
-        rng = Random.Range(0, 3);
+        rng = Random.Range(3, 4);
         if (rng == 0)
         {
             fireStage.GetComponent<FireStage>().StartLevel();
@@ -59,7 +61,11 @@ public class LevelManager : MonoBehaviour
         } else { player.GetComponent<PlayerAnimation>().horseStage = false; }
 
         if (rng == 3)
-            fireStage.GetComponent<FireStage>().StartLevel();
+        {
+            ballStage.GetComponent<BallStage>().StartLevel();
+            player.GetComponent<PlayerAnimation>().ballStage = true;
+        }
+        else { player.GetComponent<PlayerAnimation>().ballStage = false; }
 
         if (rng == 4)
             fireStage.GetComponent<FireStage>().StartLevel();
@@ -81,6 +87,11 @@ public class LevelManager : MonoBehaviour
         player.GetComponent<PlayerAnimation>().horseStage = false;
         player.GetComponent<PlayerAnimation>().swingStage = false;
         player.GetComponent<PlayerAnimation>().UpdateAnim();
+
+        player.GetComponent<jump>().hasStarted = false;
+        player.GetComponent<jump>().hasBall = false;
+        player.GetComponent<jump>().ballTimer = 0;
+        player.GetComponent<jump>().beginTimer = 0;
     }
 
     IEnumerator RopeAnim()

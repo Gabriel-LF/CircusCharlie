@@ -46,12 +46,13 @@ public class PlayerProgress : MonoBehaviour
         if (hit.gameObject.CompareTag("Jumper"))
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+            hit.gameObject.GetComponentInChildren<Animator>().SetTrigger("Pula");
         }
         if (hit.gameObject.tag == "ball")
         {
-            gameObject.GetComponent<PlayerMove>().dontMove = true;
-            this.gameObject.transform.parent = hit.gameObject.transform;
-            hit.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, 0);
+            hit.gameObject.SetActive(false);
+            gameObject.GetComponent<jump>().hasBall = true;
+            gameObject.GetComponent<PlayerAnimation>().ball.SetActive(true);
         }
     }
 
@@ -59,6 +60,7 @@ public class PlayerProgress : MonoBehaviour
     {
         gameObject.GetComponent<PlayerMove>().dontMove = true;
         gameObject.GetComponent<PlayerAnimation>().anim.SetTrigger("Death");
+        gameObject.GetComponent<jump>().anim.SetTrigger("Death");
         imortal = true;
         yield return new WaitForSeconds(3);
         if (currentScore > MainMenu.Instance.maxScore)
@@ -69,5 +71,11 @@ public class PlayerProgress : MonoBehaviour
         }
         imortal = false;
         LevelManager.Instance.Restart();
+    }
+
+    public void Die()
+    {
+        if(!imortal)
+        StartCoroutine(Death());
     }
 }

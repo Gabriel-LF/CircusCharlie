@@ -14,6 +14,8 @@ public class PlayerAnimation : MonoBehaviour
     public bool monkeyStage;
 
     public bool ballStage;
+    public Transform player;
+    public GameObject ball;
 
     public bool horseStage;
     public GameObject horse;
@@ -38,5 +40,12 @@ public class PlayerAnimation : MonoBehaviour
             horse.SetActive(true);
             anim.SetTrigger("HorseMount");
         } else { horse.SetActive(false); }
+        if (ballStage)
+        {
+            anim.SetTrigger("Walk");
+            player.position = new Vector2(player.position.x, 1.6f);
+            gameObject.GetComponent<jump>().hasBall = true;
+            ball.SetActive(true);
+        } else { player.localPosition = new Vector2(player.localPosition.x, 0.2f); ball.SetActive(false); }
     }
 }

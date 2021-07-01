@@ -7,6 +7,8 @@ public class BlueMonkey : MonoBehaviour
     private Rigidbody2D rb;
     public float jumpSpeed;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +32,6 @@ public class BlueMonkey : MonoBehaviour
     public void Jump()
     {
         rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+        anim.SetTrigger("Jump");
     }
 }

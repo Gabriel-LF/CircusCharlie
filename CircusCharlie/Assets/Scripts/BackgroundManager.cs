@@ -7,7 +7,7 @@ public class BackgroundManager : MonoBehaviour
     public GameObject [] _Background;
     private Camera _mainCamera;
     private Vector2 _screenBounds;
-
+    public Sprite[] sprites;
 
     private void Start()
     {
@@ -48,6 +48,8 @@ public class BackgroundManager : MonoBehaviour
             float _halfObjectHeight = _lastChild.GetComponent<SpriteRenderer>().bounds.extents.x;
             if(transform.position.x + _screenBounds.x > _lastChild.transform.position.x + _halfObjectHeight)
             {
+                int z = Random.Range(0, sprites.Length);
+                _firstChild.GetComponent<SpriteRenderer>().sprite = sprites[z];
                 _firstChild.transform.SetAsLastSibling();
                 _firstChild.transform.position = new Vector3(_lastChild.transform.position.x + _halfObjectHeight * 2, _lastChild.transform.position.y, _lastChild.transform.position.z);
 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class jump : MonoBehaviour
 {
@@ -17,6 +19,14 @@ public class jump : MonoBehaviour
     public float fallMultiplier = 5;
     public float linearDrag = 4;
 
+    public bool hasBall;
+    public Transform ballPosition;
+    public float ballTimer;
+
+    public bool hasStarted = false;
+    public float beginTimer;
+    public Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,9 +40,20 @@ public class jump : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1"))
         {
+            if(beginTimer > 1)
             jumpTimer = Time.time + jumpDelay;
         }
         gameObject.GetComponent<PlayerAnimation>().anim.SetBool("isMountJumping", onGround);
+        anim.SetBool("isGrounded", onGround);
+
+        if (onGround && gameObject.GetComponent<PlayerAnimation>().ballStage == true && hasBall == false && ballTimer > 1)
+            gameObject.GetComponent<PlayerProgress>().Die();
+
+        if (!hasBall && gameObject.GetComponent<PlayerAnimation>().ballStage == true)
+            ballTimer += Time.deltaTime;
+
+        if (hasStarted)
+            beginTimer += Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -50,6 +71,16 @@ public class jump : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             jumpTimer = 0;
+        }
+
+        if (hasBall && gameObject.GetComponent<PlayerAnimation>().ballStage == true)
+        {
+            GameObject ball = ObjectPooler.Instance.SpawnFromPool("Ball", new Vector3(ballPosition.position.x - 1, ballPosition.position.y, 0), Quaternion.Euler(0, 0, 0));
+            ball.layer = 2;
+            ball.GetComponent<Rigidbody2D>().AddForce(Vector2.left * jumpSpeed, ForceMode2D.Impulse);
+            hasBall = false;
+            ballPosition.gameObject.SetActive(false);
+            ballTimer = 0;
         }
     }
 
@@ -80,5 +111,11 @@ public class jump : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLenght);
         Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLenght);
+    }
+
+    public void Unstart()
+    {
+        hasStarted = true;
+        beginTimer = 0;
     }
 }

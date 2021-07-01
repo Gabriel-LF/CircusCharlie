@@ -224,8 +224,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13117032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 110, y: 3.5, z: 0}
-  m_LocalScale: {x: 250, y: 0.1, z: 1}
+  m_LocalPosition: {x: 234.6, y: 3.5, z: 0}
+  m_LocalScale: {x: 500, y: 0.1, z: 1}
   m_Children:
   - {fileID: 1065056654}
   m_Father: {fileID: 291749397}
@@ -393,22 +393,22 @@ MonoBehaviour:
     size: 2
   - tag: BigCircle
     prefab: {fileID: 8383365323514348350, guid: dfe9344c4422e0546abbe2fcf45c4bfa, type: 3}
-    size: 10
+    size: 30
   - tag: SmallCircle
     prefab: {fileID: 1168509859059808593, guid: ff79defa622e9f5448a49b66ecdaae32, type: 3}
-    size: 10
+    size: 30
   - tag: FireJar
     prefab: {fileID: 1939289862193129, guid: a73320f8ad8f8164d9db22e916c5f649, type: 3}
     size: 10
   - tag: Monkey
     prefab: {fileID: 341322423190834329, guid: 066e16c9cc579924ebedd23ea4bcbdde, type: 3}
-    size: 10
+    size: 30
   - tag: BlueMonkey
     prefab: {fileID: 341322423190834329, guid: ad4ff0f0db9878d47b163d0b0472eb3e, type: 3}
     size: 10
   - tag: Jump
     prefab: {fileID: 1452348966288736024, guid: f741764b4c806474380e6741d98a4167, type: 3}
-    size: 10
+    size: 30
   - tag: Ball
     prefab: {fileID: 1827207573909584774, guid: 8b600e1ed3133ec4e95a2ec5ab1b60df, type: 3}
     size: 10
@@ -572,10 +572,18 @@ MonoBehaviour:
   randomTag: 
   monkeysToSpawn: 10
   bluesToSpawn: 3
+  begin1: 10
+  begin2: 40
   spawnDistance: 0
   spawnDistance2: 0
   player: {fileID: 406311424}
   rope: {fileID: 13117033}
+  obstacle1: 0
+  obstacle2: 0
+  distance1min: 0
+  distance1max: 0
+  distance2min: 0
+  distance2max: 0
 --- !u!1 &308162739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,8 +1279,16 @@ MonoBehaviour:
   randomTag: 
   circlesToSpawn: 10
   jarsToSpawn: 3
+  begin1: 10
+  begin2: 20
   spawnDistance: 0
   spawnDistance2: 0
+  obstacle1: 0
+  obstacle2: 0
+  distance1min: 0
+  distance1max: 0
+  distance2min: 0
+  distance2max: 0
   player: {fileID: 406311424}
 --- !u!4 &704105250
 Transform:
@@ -1483,6 +1499,7 @@ GameObject:
   - component: {fileID: 1116225807}
   - component: {fileID: 1116225808}
   - component: {fileID: 1116225809}
+  - component: {fileID: 1116225810}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1548,6 +1565,23 @@ MonoBehaviour:
   ground: {fileID: 2096909960660507849, guid: 637e41caf9f86394ba89f147294acd75, type: 3}
   dif: 0
   cooldown: 0
+--- !u!114 &1116225810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116225806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704727987d480504682c9c5c42b654a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavesSurvived: 0
+  fire: {fileID: 704105249}
+  monkey: {fileID: 291749398}
+  horse: {fileID: 1832357282}
+  ball: {fileID: 648631364}
 --- !u!1 &1138304004
 GameObject:
   m_ObjectHideFlags: 0

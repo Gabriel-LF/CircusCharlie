@@ -31,7 +31,8 @@ public class PlayerProgress : MonoBehaviour
         {
             ObjectPooler.Instance.SpawnFromPool("Confete", new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), Quaternion.Euler(0, 0, 0));
             LevelManager.Instance.playerPosition = gameObject.transform.position.x;
-            LevelManager.Instance.LoadLevel();
+            DifficultyScaler.Instance.LevelUp();
+            LevelManager.Instance.LoadLevel();  
         }
         if (hit.gameObject.CompareTag("Hazard") && !imortal)
         {
@@ -71,6 +72,7 @@ public class PlayerProgress : MonoBehaviour
         }
         imortal = false;
         LevelManager.Instance.Restart();
+        DifficultyScaler.Instance.Reset();
     }
 
     public void Die()

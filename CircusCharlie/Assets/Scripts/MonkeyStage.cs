@@ -8,6 +8,7 @@ public class MonkeyStage : MonoBehaviour
     public string randomTag;
     public int monkeysToSpawn;
     public int bluesToSpawn;
+    public float begin1, begin2;
 
     public float spawnDistance;
     public float spawnDistance2;
@@ -15,28 +16,32 @@ public class MonkeyStage : MonoBehaviour
     public Transform player;
     public Transform rope;
 
+    public int obstacle1, obstacle2;
+    public float distance1min, distance1max, distance2min, distance2max;
+
     public void StartLevel()
     {
         StartCoroutine(RopeAnim());
         
-        spawnDistance = LevelManager.Instance.playerPosition + 30;
-        spawnDistance2 = LevelManager.Instance.playerPosition + 40;
+        spawnDistance = LevelManager.Instance.playerPosition + 10;
+        spawnDistance2 = LevelManager.Instance.playerPosition + 30;
         int i = 0;
         do
         {
+            spawnDistance += Random.Range(distance1min, distance1max);
+            //Debug.Log(spawnDistance + " spawned " + i);
             SpawnObstacle();
-            spawnDistance += 10;
             i++;
-        } while (i < monkeysToSpawn);
-        if (i >= monkeysToSpawn)
-            ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance, 0, 0), Quaternion.Euler(0, 0, 0));
+        } while (i < obstacle1);
+        if (i >= obstacle1)
+            ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance - 15, 0, 0), Quaternion.Euler(0, 0, 0));
         int a = 0;
         do
         {
+            spawnDistance2 += Random.Range(distance2min, distance2max);
             SpawnObstacle2();
-            spawnDistance2 += 40;
             a++;
-        } while (a < bluesToSpawn);
+        } while (a < obstacle2);
     }
 
     public void SpawnObstacle()

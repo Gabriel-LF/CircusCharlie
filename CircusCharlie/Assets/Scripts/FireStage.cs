@@ -9,9 +9,13 @@ public class FireStage : MonoBehaviour
     public string randomTag;
     public int circlesToSpawn;
     public int jarsToSpawn;
+    public float begin1, begin2;
 
     public float spawnDistance;
     public float spawnDistance2;
+
+    public int obstacle1, obstacle2;
+    public float distance1min, distance1max, distance2min, distance2max;
 
     public Transform player;
 
@@ -23,19 +27,19 @@ public class FireStage : MonoBehaviour
         spawnDistance2 = LevelManager.Instance.playerPosition + 40;
         int i = 0;
         do {
+            spawnDistance += Random.Range(distance1min, distance1max);
             SpawnObstacle();
-            spawnDistance += 10;
             i++;
-        } while (i < circlesToSpawn);
-        if(i >= circlesToSpawn)
-            ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance, 0, 0), Quaternion.Euler(0, 0, 0));
+        } while (i < obstacle1);
+        if(i >= obstacle1)
+            ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance-10, 0, 0), Quaternion.Euler(0, 0, 0));
         int a = 0;
         do
         {
+            spawnDistance2 += Random.Range(distance2min, distance2max);
             SpawnObstacle2();
-            spawnDistance2 += 20;
             a++;
-        } while (a < jarsToSpawn);
+        } while (a < obstacle2);
     }
 
     public void SpawnObstacle()

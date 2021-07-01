@@ -12,6 +12,9 @@ public class PlayerProgress : MonoBehaviour
 
     public bool imortal;
 
+    public AudioSource audios;
+    public AudioClip death, stage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,7 @@ public class PlayerProgress : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Finish"))
         {
+            Play(stage);
             ObjectPooler.Instance.SpawnFromPool("Confete", new Vector3(transform.position.x + 1, transform.position.y, transform.position.z), Quaternion.Euler(0, 0, 0));
             LevelManager.Instance.playerPosition = gameObject.transform.position.x;
             DifficultyScaler.Instance.LevelUp();
@@ -59,6 +63,8 @@ public class PlayerProgress : MonoBehaviour
 
     IEnumerator Death()
     {
+        Play(death);
+
         gameObject.GetComponent<PlayerMove>().dontMove = true;
         gameObject.GetComponent<PlayerAnimation>().anim.SetTrigger("Death");
         gameObject.GetComponent<jump>().anim.SetTrigger("Death");
@@ -79,5 +85,11 @@ public class PlayerProgress : MonoBehaviour
     {
         if(!imortal)
         StartCoroutine(Death());
+    }
+
+    public void Play(AudioClip clip)
+    {
+        audios.clip = clip;
+        audios.Play();
     }
 }

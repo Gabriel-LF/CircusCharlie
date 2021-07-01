@@ -12,6 +12,9 @@ public class DifficultyScaler : MonoBehaviour
     public HorseStage horse;
     public BallStage ball;
 
+    public AudioSource audios;
+    public AudioClip wave;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,9 @@ public class DifficultyScaler : MonoBehaviour
 
         if(wavesSurvived > 5 && wavesSurvived < 11)
         {
+            audios.clip = wave;
+            audios.Play();
+
             fire.obstacle1 = 15; fire.obstacle2 = 4;
             fire.distance1min = 9; fire.distance1max = 12;
             fire.distance2min = 19; fire.distance2max = 22;
@@ -32,9 +38,18 @@ public class DifficultyScaler : MonoBehaviour
             monkey.obstacle1 = 15; monkey.obstacle2 = 4;
             monkey.distance1min = 9; monkey.distance1max = 12;
             monkey.distance2min = 39; monkey.distance2max = 42;
+
+            horse.obstacle = 15;
+            horse.distancemin = 9; horse.distancemax = 12;
+
+            ball.obstacle = 4;
+            ball.distancemin = 29; ball.distancemax = 32;
         }
         if (wavesSurvived > 10)
         {
+            audios.clip = wave;
+            audios.Play();
+
             fire.obstacle1 = 20; fire.obstacle2 = 5;
             fire.distance1min = 7; fire.distance1max = 13;
             fire.distance2min = 17; fire.distance2max = 23;
@@ -42,6 +57,12 @@ public class DifficultyScaler : MonoBehaviour
             monkey.obstacle1 = 20; monkey.obstacle2 = 5;
             monkey.distance1min = 7; monkey.distance1max = 13;
             monkey.distance2min = 37; monkey.distance2max = 43;
+
+            horse.obstacle = 20;
+            horse.distancemin = 7; horse.distancemax = 13;
+
+            ball.obstacle = 5;
+            ball.distancemin = 27; ball.distancemax = 33;
         }
     }
 
@@ -55,5 +76,11 @@ public class DifficultyScaler : MonoBehaviour
         monkey.obstacle1 = monkey.monkeysToSpawn; monkey.obstacle2 = monkey.bluesToSpawn;
         monkey.distance1min = monkey.begin1; monkey.distance1max = monkey.begin1 + 1;
         monkey.distance2min = monkey.begin2; monkey.distance2max = monkey.begin2 + 1;
+
+        horse.obstacle = horse.jumpsToSpawn;
+        horse.distancemin = horse.begin; horse.distancemax = horse.begin + 1;
+
+        ball.obstacle = ball.ballsToSpawn;
+        ball.distancemin = ball.begin; ball.distancemax = ball.begin + 1;
     }
 }

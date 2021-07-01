@@ -34,7 +34,7 @@ public class MonkeyStage : MonoBehaviour
             i++;
         } while (i < obstacle1);
         if (i >= obstacle1)
-            ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance - 15, 0, 0), Quaternion.Euler(0, 0, 0));
+            ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance - 10, 0, 0), Quaternion.Euler(0, 0, 0));
         int a = 0;
         do
         {

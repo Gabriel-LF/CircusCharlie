@@ -7,6 +7,7 @@ public class HorseStage : MonoBehaviour
 {
     public int rng;
     public int jumpsToSpawn;
+    public float begin;
 
     public float spawnDistance;
 
@@ -14,11 +15,14 @@ public class HorseStage : MonoBehaviour
 
     public float h1, h2;
 
+    public int obstacle;
+    public float distancemin, distancemax;
+
     public void StartLevel()
     {
         player.position = new Vector2(player.position.x, 0);
 
-        spawnDistance = LevelManager.Instance.playerPosition + 30;
+        spawnDistance = LevelManager.Instance.playerPosition + 10;
         int i = 0;
         int a = 0;
         do
@@ -35,11 +39,11 @@ public class HorseStage : MonoBehaviour
                 { h2 = Random.Range(0.6f, 6f); }
                 else { h2 = Random.Range(0.01f, 0.4f); }
                 SpawnObstacle2();
-                spawnDistance += 10;
+                spawnDistance += Random.Range(distancemin, distancemax);
             }
             i++;
-        } while (i < jumpsToSpawn);
-        if (i >= jumpsToSpawn)
+        } while (i < obstacle);
+        if (i >= obstacle)
             ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance, 0, 0), Quaternion.Euler(0, 0, 0));
     }
 

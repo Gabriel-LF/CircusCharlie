@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
     
     public void LoadLevel()
     {
-        rng = Random.Range(1, 2);
+        rng = Random.Range(0, 4);
         if (rng == 0)
         {
             fireStage.GetComponent<FireStage>().StartLevel();

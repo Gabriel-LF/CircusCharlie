@@ -25,6 +25,8 @@ public class jump : MonoBehaviour
     public float ballTimer;
 
     public Animator anim;
+    public AudioSource audios;
+    public AudioClip jumpSound;
 
     void Start()
     {
@@ -64,6 +66,9 @@ public class jump : MonoBehaviour
     {
         if(gameObject.GetComponent<PlayerMove>().dontMove == false)
         {
+            audios.clip = jumpSound;
+            audios.Play();
+
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             jumpTimer = 0;

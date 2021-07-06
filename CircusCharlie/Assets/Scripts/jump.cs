@@ -14,6 +14,8 @@ public class jump : MonoBehaviour
     public float groundLenght;
     public Vector3 colliderOffset;
     [Header("fisica do pulo")]
+    public float defaultJumpSpeed;
+    public float monkeyJumpSpeed;
     public float jumpSpeed;
     public float jumpDelay = 0.25f;
     public float gravity = 1;
@@ -79,6 +81,7 @@ public class jump : MonoBehaviour
             GameObject ball = ObjectPooler.Instance.SpawnFromPool("Ball", new Vector3(ballPosition.position.x - 1, ballPosition.position.y, 0), Quaternion.Euler(0, 0, 0));
             ball.layer = 2;
             ball.GetComponent<Rigidbody2D>().AddForce(Vector2.left * jumpSpeed, ForceMode2D.Impulse);
+            ball.GetComponent<Animator>().SetTrigger("Kicked");
             hasBall = false;
             ballPosition.gameObject.SetActive(false);
             ballTimer = 0;

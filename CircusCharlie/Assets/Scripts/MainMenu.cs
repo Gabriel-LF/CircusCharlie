@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
     public static MainMenu Instance;
     public int maxScore;
     public Text scoreText;
+    public int totalCoins;
+    public int collectedCoins;
 
     public GameObject player;
 

@@ -11,6 +11,8 @@ public class PlayerProgress : MonoBehaviour
     public Text scoreText;
 
     public bool imortal;
+    public Transform horse;
+    public bool freeHorse = false;
 
     public AudioSource audios;
     public AudioClip death, stage;
@@ -26,6 +28,9 @@ public class PlayerProgress : MonoBehaviour
     {
         currentScore = (int)gameObject.transform.position.x;
         scoreText.text = (currentScore.ToString() + "m");
+
+        if (freeHorse)
+            horse.Translate(Vector2.right * Time.deltaTime * 3);
     }
 
     public void OnTriggerEnter2D(Collider2D hit)
@@ -65,6 +70,7 @@ public class PlayerProgress : MonoBehaviour
     {
         Play(death);
 
+        freeHorse = true;
         gameObject.GetComponent<PlayerMove>().dontMove = true;
         gameObject.GetComponent<PlayerAnimation>().anim.SetTrigger("Death");
         gameObject.GetComponent<jump>().anim.SetTrigger("Death");
@@ -77,6 +83,7 @@ public class PlayerProgress : MonoBehaviour
             PlayerPrefs.SetInt("MaxScore", MainMenu.Instance.maxScore);
         }
         imortal = false;
+        freeHorse = false;
         LevelManager.Instance.Restart();
         DifficultyScaler.Instance.Reset();
     }

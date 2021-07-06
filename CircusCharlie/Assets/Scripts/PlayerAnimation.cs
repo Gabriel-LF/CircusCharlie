@@ -35,7 +35,10 @@ public class PlayerAnimation : MonoBehaviour
             anim.SetTrigger("Mount");
         } else { lion.SetActive(false); }
         if (monkeyStage)
+        {
             anim.SetTrigger("Walk");
+            gameObject.GetComponent<jump>().jumpSpeed = gameObject.GetComponent<jump>().monkeyJumpSpeed;
+        } else { gameObject.GetComponent<jump>().jumpSpeed = gameObject.GetComponent<jump>().defaultJumpSpeed; }
         if (horseStage)
         {
             horse.SetActive(true);

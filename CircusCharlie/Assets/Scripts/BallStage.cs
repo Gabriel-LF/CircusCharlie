@@ -33,6 +33,7 @@ public class BallStage : MonoBehaviour
 
     public void SpawnObstacle()
     {
-        ObjectPooler.Instance.SpawnFromPool("Ball", new Vector3(spawnDistance, 0.15f, 0), Quaternion.Euler(0, 0, 0));
+        GameObject ball = ObjectPooler.Instance.SpawnFromPool("Ball", new Vector3(spawnDistance, 0.15f, 0), Quaternion.Euler(0, 0, 0));
+        ball.layer = 0;
     }
 }

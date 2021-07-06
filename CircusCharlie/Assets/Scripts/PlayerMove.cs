@@ -20,6 +20,9 @@ public class PlayerMove : MonoBehaviour
     public bool ready;
     public Image button;
 
+    public AudioSource audios;
+    public AudioClip halt;
+
     void Start()
     {
         dontMove = true;
@@ -67,6 +70,9 @@ public class PlayerMove : MonoBehaviour
             currentDuration = haltDuration;
             currentCooldown = 0;
             isHalt = true;
+
+            audios.clip = halt;
+            audios.Play();
         }
     }
 }

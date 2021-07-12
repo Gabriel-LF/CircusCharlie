@@ -43,7 +43,8 @@ public class PlayerAnimation : MonoBehaviour
         {
             horse.SetActive(true);
             anim.SetTrigger("HorseMount");
-        } else { horse.SetActive(false); }
+            gameObject.GetComponent<PlayerMove>().onHorse = true;
+        } else { horse.SetActive(false); gameObject.GetComponent<PlayerMove>().onHorse = false; }
         if (ballStage)
         {
             anim.SetTrigger("Walk");

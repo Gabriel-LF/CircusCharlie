@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf3a35ba046b7544dad87ea6bc8ac391, type: 3}
-  m_Name: Chroma
+  m_Name: LionDefault
   m_EditorClassIdentifier: 
-  name: Chroma Shape
-  type: 4
-  icon: {fileID: 21300000, guid: e5f160d5cc746e54390922a83682a8dd, type: 3}
-  id: 4
+  name: LionDefault
+  type: 1
+  icon: {fileID: 518539287406071696, guid: 885561432d734ae4d89099b23848af2a, type: 3}
   unlocked: 0
+  equiped: 0

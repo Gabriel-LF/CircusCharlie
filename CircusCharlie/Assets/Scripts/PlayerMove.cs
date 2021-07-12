@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
 {
     public float speed;
     public bool dontMove;
+    [SerializeField]
     private float currentSpeed;
 
     public float haltSpeed;
@@ -19,6 +20,9 @@ public class PlayerMove : MonoBehaviour
     private float currentCooldown;
     public bool ready;
     public Image button;
+
+    public float horseSpeed;
+    public bool onHorse;
 
     public AudioSource audios;
     public AudioClip halt;
@@ -52,10 +56,14 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (!isHalt) { currentSpeed = speed; }
-        else { currentSpeed = haltSpeed; }
+        if (isHalt)
+            currentSpeed = haltSpeed; 
+        if (onHorse && !isHalt)
+            currentSpeed = horseSpeed;
+        if (!isHalt && !onHorse)
+            currentSpeed = speed;
 
-        if(!dontMove)
+        if (!dontMove)
         transform.Translate(Vector2.right * Time.deltaTime * currentSpeed);
 
         if (Input.GetButtonDown("Fire2") && ready)

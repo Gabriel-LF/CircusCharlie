@@ -30,7 +30,7 @@ public class PlayerProgress : MonoBehaviour
         scoreText.text = (currentScore.ToString() + "m");
 
         if (freeHorse)
-            horse.Translate(Vector2.right * Time.deltaTime * 3);
+            horse.Translate(Vector2.right * Time.deltaTime * 4);
     }
 
     public void OnTriggerEnter2D(Collider2D hit)

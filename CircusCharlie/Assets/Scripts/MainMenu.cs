@@ -13,6 +13,14 @@ public class MainMenu : MonoBehaviour
 
     public GameObject player;
 
+    public int charEquiped;
+    public int lionEquiped;
+    public int horseEquiped;
+    public int ballEquiped;
+    public int ropeEquiped;
+    public int swingEquiped;
+    public int platformEquiped;
+
     // Start is called before the first frame update
     void Start()
     {

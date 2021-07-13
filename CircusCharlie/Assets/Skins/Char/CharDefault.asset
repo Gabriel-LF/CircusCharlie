@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3a35ba046b7544dad87ea6bc8ac391, type: 3}
   m_Name: CharDefault
   m_EditorClassIdentifier: 
-  name: CharDefault
+  name: Circus Runner
   type: 0
   icon: {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  id: 0
   unlocked: 0
-  equiped: 0

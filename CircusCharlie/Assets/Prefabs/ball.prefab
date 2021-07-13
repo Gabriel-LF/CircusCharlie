@@ -97,8 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skin:
   - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
-  - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
-  - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
+  - {fileID: 21300000, guid: 38ae0b6826b753145a1879e10b7760ce, type: 3}
+  - {fileID: 21300000, guid: e24a6abf35a22294f8138ea3ce1c1ca1, type: 3}
   - {fileID: 21300000, guid: 3de3f943c1629784497e78399c2e99b0, type: 3}
   - {fileID: 21300000, guid: e5f160d5cc746e54390922a83682a8dd, type: 3}
   type: 4

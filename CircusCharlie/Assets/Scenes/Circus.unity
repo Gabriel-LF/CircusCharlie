@@ -670,8 +670,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skin:
   - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
-  - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
-  - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
+  - {fileID: 21300000, guid: 38ae0b6826b753145a1879e10b7760ce, type: 3}
+  - {fileID: 21300000, guid: e24a6abf35a22294f8138ea3ce1c1ca1, type: 3}
   - {fileID: 21300000, guid: 3de3f943c1629784497e78399c2e99b0, type: 3}
   - {fileID: 21300000, guid: e5f160d5cc746e54390922a83682a8dd, type: 3}
   type: 4
@@ -868,6 +868,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1586665382}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1586665382}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &182609866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +941,7 @@ GameObject:
   - component: {fileID: 264696062}
   - component: {fileID: 264696065}
   - component: {fileID: 264696064}
+  - component: {fileID: 264696063}
   m_Layer: 5
   m_Name: Preview
   m_TagString: Untagged
@@ -943,6 +968,32 @@ RectTransform:
   m_AnchoredPosition: {x: -470, y: 227}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &264696063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264696061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c80aa3dd3fbad248bdd5635f7e713a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+  - {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  - {fileID: 6084859605308855041, guid: d68aaef79ae55b54e83f412f1fbe91a7, type: 3}
+  - {fileID: 4281637774074219296, guid: 33b271772678d074abe8abee26b87db7, type: 3}
+  - {fileID: 6971375644381031630, guid: 9740269927b78564db4caa0b8f7e0a9b, type: 3}
+  - {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  - {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  - {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  - {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  type: 0
+  mm: {fileID: 382433545}
+  sr: {fileID: 0}
+  im: {fileID: 0}
+  wait: 1
 --- !u!114 &264696064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,6 +1576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   dontMove: 0
+  currentSpeed: 0
   haltSpeed: 2
   isHalt: 0
   haltDuration: 2
@@ -1796,6 +1848,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1a1d1a41d243bcd4cb4808d21ebd6d07, type: 2}
   - {fileID: 11400000, guid: 1a1d1a41d243bcd4cb4808d21ebd6d07, type: 2}
   buttonPrefab: {fileID: 6440641783435402553, guid: 98bf921bd48373d469404158c3589ed6, type: 3}
+  type: 3
   myButton: {fileID: 1866215307}
 --- !u!114 &430069960
 MonoBehaviour:
@@ -2021,8 +2074,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skin:
   - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
-  - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
-  - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
+  - {fileID: 21300000, guid: 38ae0b6826b753145a1879e10b7760ce, type: 3}
+  - {fileID: 21300000, guid: e24a6abf35a22294f8138ea3ce1c1ca1, type: 3}
   - {fileID: 21300000, guid: 3de3f943c1629784497e78399c2e99b0, type: 3}
   - {fileID: 21300000, guid: e5f160d5cc746e54390922a83682a8dd, type: 3}
   type: 4
@@ -2319,6 +2372,7 @@ GameObject:
   - component: {fileID: 663463031}
   - component: {fileID: 663463030}
   - component: {fileID: 663463029}
+  - component: {fileID: 663463033}
   m_Layer: 5
   m_Name: Chars
   m_TagString: Untagged
@@ -2453,6 +2507,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663463027}
   m_CullTransparentMesh: 1
+--- !u!114 &663463033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663463027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c80aa3dd3fbad248bdd5635f7e713a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+  - {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  - {fileID: 6084859605308855041, guid: d68aaef79ae55b54e83f412f1fbe91a7, type: 3}
+  - {fileID: 4281637774074219296, guid: 33b271772678d074abe8abee26b87db7, type: 3}
+  - {fileID: 6971375644381031630, guid: 9740269927b78564db4caa0b8f7e0a9b, type: 3}
+  - {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  - {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  - {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  - {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  type: 0
+  mm: {fileID: 382433545}
+  sr: {fileID: 0}
+  im: {fileID: 0}
+  wait: 1
 --- !u!1 &704105248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,6 +2648,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69ae51729b07d4c4faf680fabb11c31a, type: 2}
   - {fileID: 11400000, guid: 69ae51729b07d4c4faf680fabb11c31a, type: 2}
   buttonPrefab: {fileID: 6440641783435402553, guid: 98bf921bd48373d469404158c3589ed6, type: 3}
+  type: 2
   myButton: {fileID: 0}
 --- !u!114 &776766897
 MonoBehaviour:
@@ -2746,14 +2827,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList:
   - {fileID: 11400000, guid: 73f531a778034dd49945034e421f1881, type: 2}
-  - {fileID: 11400000, guid: 73f531a778034dd49945034e421f1881, type: 2}
-  - {fileID: 11400000, guid: 73f531a778034dd49945034e421f1881, type: 2}
-  - {fileID: 11400000, guid: 73f531a778034dd49945034e421f1881, type: 2}
+  - {fileID: 11400000, guid: 15a88790b7dd73248a2008bdb5b9b572, type: 2}
+  - {fileID: 11400000, guid: 9ba2d4fe66afc2e44aafff1de3d2a620, type: 2}
+  - {fileID: 11400000, guid: d1bff10b22313f341b084522a3821577, type: 2}
   - {fileID: 11400000, guid: 73f531a778034dd49945034e421f1881, type: 2}
   - {fileID: 11400000, guid: 73f531a778034dd49945034e421f1881, type: 2}
   - {fileID: 11400000, guid: 73f531a778034dd49945034e421f1881, type: 2}
   - {fileID: 11400000, guid: 73f531a778034dd49945034e421f1881, type: 2}
   buttonPrefab: {fileID: 6440641783435402553, guid: 98bf921bd48373d469404158c3589ed6, type: 3}
+  type: 0
   myButton: {fileID: 663463027}
 --- !u!1 &828280341
 GameObject:
@@ -3992,6 +4074,7 @@ GameObject:
   - component: {fileID: 1586665383}
   - component: {fileID: 1586665384}
   - component: {fileID: 1586665385}
+  - component: {fileID: 1586665386}
   m_Layer: 0
   m_Name: Idle
   m_TagString: Untagged
@@ -4084,6 +4167,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1586665386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586665382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e232df998055dc45bbd2fc40d96a2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 22100000, guid: d52cf2a4673ab2947b27ab7bc39666bd, type: 2}
+  - {fileID: 22100000, guid: 0e8f853986c6f034f9f83eecb82545c2, type: 2}
+  - {fileID: 22100000, guid: 7fd7a706a82707d46af92583fe55b49e, type: 2}
+  - {fileID: 22100000, guid: aa3edc0a3f2087242bd92ee589db801e, type: 2}
+  - {fileID: 22100000, guid: d52cf2a4673ab2947b27ab7bc39666bd, type: 2}
+  - {fileID: 22100000, guid: d52cf2a4673ab2947b27ab7bc39666bd, type: 2}
+  - {fileID: 22100000, guid: d52cf2a4673ab2947b27ab7bc39666bd, type: 2}
+  - {fileID: 22100000, guid: d52cf2a4673ab2947b27ab7bc39666bd, type: 2}
+  type: 0
+  mm: {fileID: 382433545}
+  wait: 1
 --- !u!1 &1647207205
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,11 +4394,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList:
   - {fileID: 11400000, guid: f34e47ade30bc9a47acf6089d8a43508, type: 2}
-  - {fileID: 11400000, guid: f34e47ade30bc9a47acf6089d8a43508, type: 2}
-  - {fileID: 11400000, guid: f34e47ade30bc9a47acf6089d8a43508, type: 2}
+  - {fileID: 11400000, guid: 3234803488a536547822ae9708853dc5, type: 2}
+  - {fileID: 11400000, guid: f1198004d68bd3549bab6620a6519cb1, type: 2}
   - {fileID: 11400000, guid: 985cf1656fee019419dfd85e8e98a6c6, type: 2}
   - {fileID: 11400000, guid: 69ae51729b07d4c4faf680fabb11c31a, type: 2}
   buttonPrefab: {fileID: 6440641783435402553, guid: 98bf921bd48373d469404158c3589ed6, type: 3}
+  type: 4
   myButton: {fileID: 487836091}
 --- !u!114 &1704345673
 MonoBehaviour:
@@ -4733,8 +4841,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skin:
   - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
-  - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
-  - {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
+  - {fileID: 21300000, guid: 38ae0b6826b753145a1879e10b7760ce, type: 3}
+  - {fileID: 21300000, guid: e24a6abf35a22294f8138ea3ce1c1ca1, type: 3}
   - {fileID: 21300000, guid: 3de3f943c1629784497e78399c2e99b0, type: 3}
   - {fileID: 21300000, guid: e5f160d5cc746e54390922a83682a8dd, type: 3}
   type: 4
@@ -5295,6 +5403,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f891a0d3f34bc0f4d90db3c19c172e67, type: 2}
   - {fileID: 11400000, guid: f891a0d3f34bc0f4d90db3c19c172e67, type: 2}
   buttonPrefab: {fileID: 6440641783435402553, guid: 98bf921bd48373d469404158c3589ed6, type: 3}
+  type: 1
   myButton: {fileID: 941725695}
 --- !u!114 &1955469925
 MonoBehaviour:
@@ -5675,6 +5784,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e5f467d2c875f3d448c6e820ba215a81, type: 3}
   - {fileID: 21300000, guid: 30e92d90d83bca74286578c10e85c29e, type: 3}
   - {fileID: 21300000, guid: 81e4f7985d348f745aa76a625ae95e8c, type: 3}
+  - {fileID: 21300000, guid: 4b5d04dd8f0088846b3324cd1749b388, type: 3}
+  - {fileID: 21300000, guid: fc948991dcce0214da92740a54003f22, type: 3}
 --- !u!4 &7601576066734690601
 Transform:
   m_ObjectHideFlags: 0

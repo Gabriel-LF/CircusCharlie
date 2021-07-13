@@ -27,6 +27,10 @@ public class SkinSprite : MonoBehaviour
     }
     public void UpdateSkin()
     {
+        if (type == ItemType.Char)
+        {
+            if (sr != null) { sr.sprite = skin[mm.charEquiped]; } else { im.sprite = skin[mm.charEquiped]; }
+        }
         if (type == ItemType.Ball)
         {
             if (sr != null) { sr.sprite = skin[mm.ballEquiped]; } else { im.sprite = skin[mm.ballEquiped]; }

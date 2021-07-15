@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf3a35ba046b7544dad87ea6bc8ac391, type: 3}
-  m_Name: LionDefault
+  m_Name: Riley
   m_EditorClassIdentifier: 
-  name: Lion
+  name: Riley
   type: 1
-  icon: {fileID: 518539287406071696, guid: 885561432d734ae4d89099b23848af2a, type: 3}
-  id: 0
+  icon: {fileID: 518539287406071696, guid: b83aa8805ef6c564db52a93439cf4d06, type: 3}
+  id: 4
   unlocked: 0

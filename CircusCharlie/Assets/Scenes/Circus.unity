@@ -3131,6 +3131,7 @@ GameObject:
   - component: {fileID: 876710566}
   - component: {fileID: 876710568}
   - component: {fileID: 876710567}
+  - component: {fileID: 876710569}
   m_Layer: 5
   m_Name: Preview
   m_TagString: Untagged
@@ -3195,6 +3196,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876710565}
   m_CullTransparentMesh: 1
+--- !u!114 &876710569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876710565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c80aa3dd3fbad248bdd5635f7e713a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+  - {fileID: 518539287406071696, guid: 885561432d734ae4d89099b23848af2a, type: 3}
+  - {fileID: 518539287406071696, guid: 7dc993a3236cbff4c9ce7c09a10a62ab, type: 3}
+  - {fileID: 518539287406071696, guid: a2fc619148d7bdf4fbbbe9c25bb60947, type: 3}
+  - {fileID: 518539287406071696, guid: 51f31c907d13a2742816bb4c694eefea, type: 3}
+  - {fileID: 518539287406071696, guid: b83aa8805ef6c564db52a93439cf4d06, type: 3}
+  - {fileID: 518539287406071696, guid: b63bc1b899d78b24e95c53a553c8df5a, type: 3}
+  - {fileID: 518539287406071696, guid: 3866d97bb2454224f8b0827d8e039866, type: 3}
+  type: 1
+  mm: {fileID: 382433545}
+  sr: {fileID: 0}
+  im: {fileID: 0}
+  wait: 1
 --- !u!1 &941725695
 GameObject:
   m_ObjectHideFlags: 0
@@ -3208,6 +3234,7 @@ GameObject:
   - component: {fileID: 941725699}
   - component: {fileID: 941725698}
   - component: {fileID: 941725697}
+  - component: {fileID: 941725701}
   m_Layer: 5
   m_Name: Lions
   m_TagString: Untagged
@@ -3342,6 +3369,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941725695}
   m_CullTransparentMesh: 1
+--- !u!114 &941725701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941725695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c80aa3dd3fbad248bdd5635f7e713a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+  - {fileID: 518539287406071696, guid: 885561432d734ae4d89099b23848af2a, type: 3}
+  - {fileID: 518539287406071696, guid: 7dc993a3236cbff4c9ce7c09a10a62ab, type: 3}
+  - {fileID: 518539287406071696, guid: a2fc619148d7bdf4fbbbe9c25bb60947, type: 3}
+  - {fileID: 518539287406071696, guid: 51f31c907d13a2742816bb4c694eefea, type: 3}
+  - {fileID: 518539287406071696, guid: b83aa8805ef6c564db52a93439cf4d06, type: 3}
+  - {fileID: 518539287406071696, guid: b63bc1b899d78b24e95c53a553c8df5a, type: 3}
+  - {fileID: 518539287406071696, guid: 3866d97bb2454224f8b0827d8e039866, type: 3}
+  type: 1
+  mm: {fileID: 382433545}
+  sr: {fileID: 0}
+  im: {fileID: 0}
+  wait: 1
 --- !u!1 &1038159273
 GameObject:
   m_ObjectHideFlags: 0
@@ -3353,6 +3405,7 @@ GameObject:
   - component: {fileID: 1038159274}
   - component: {fileID: 1038159275}
   - component: {fileID: 1038159276}
+  - component: {fileID: 1038159277}
   m_Layer: 0
   m_Name: Lion
   m_TagString: Untagged
@@ -3444,6 +3497,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1038159277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038159273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e232df998055dc45bbd2fc40d96a2d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 22100000, guid: c9a535074a056a04b818b73b36baaf47, type: 2}
+  - {fileID: 22100000, guid: e331f39322b066a4985b52f4f83d616c, type: 2}
+  - {fileID: 22100000, guid: 8480a935b00f71d42b3eebe18101359a, type: 2}
+  - {fileID: 22100000, guid: 344f5a2e15126ce4781750a6a27c4a6d, type: 2}
+  - {fileID: 22100000, guid: c87ff9f1035994a44ac0eab83d6c196c, type: 2}
+  - {fileID: 22100000, guid: a5b264e816f2718469d53153f35efca9, type: 2}
+  - {fileID: 22100000, guid: e3c9ca94944546e419049a089a24ca3f, type: 2}
+  type: 1
+  mm: {fileID: 382433545}
+  wait: 1
 --- !u!1 &1065056653
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,12 +5875,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList:
   - {fileID: 11400000, guid: f891a0d3f34bc0f4d90db3c19c172e67, type: 2}
-  - {fileID: 11400000, guid: f891a0d3f34bc0f4d90db3c19c172e67, type: 2}
-  - {fileID: 11400000, guid: f891a0d3f34bc0f4d90db3c19c172e67, type: 2}
-  - {fileID: 11400000, guid: f891a0d3f34bc0f4d90db3c19c172e67, type: 2}
-  - {fileID: 11400000, guid: f891a0d3f34bc0f4d90db3c19c172e67, type: 2}
-  - {fileID: 11400000, guid: f891a0d3f34bc0f4d90db3c19c172e67, type: 2}
-  - {fileID: 11400000, guid: f891a0d3f34bc0f4d90db3c19c172e67, type: 2}
+  - {fileID: 11400000, guid: bb30f6310c5d8d940989e1260a451fe9, type: 2}
+  - {fileID: 11400000, guid: 48b4400b6d6f5c14dac42045d473fad8, type: 2}
+  - {fileID: 11400000, guid: 4a1e39009bcd22f4db868dc26bb3e61d, type: 2}
+  - {fileID: 11400000, guid: 12f56b2114bc50c40892c85f7c787a09, type: 2}
+  - {fileID: 11400000, guid: 2dc5ec85d3946274dbc2896d212178e9, type: 2}
+  - {fileID: 11400000, guid: 0957fbf4283e80849bc1d2a3b9c3dff9, type: 2}
   buttonPrefab: {fileID: 6440641783435402553, guid: 98bf921bd48373d469404158c3589ed6, type: 3}
   type: 1
   myButton: {fileID: 941725695}

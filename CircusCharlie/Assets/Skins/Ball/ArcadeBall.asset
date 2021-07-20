@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Arcade Ball
   type: 4
   icon: {fileID: 21300000, guid: e24a6abf35a22294f8138ea3ce1c1ca1, type: 3}
+  preview: {fileID: 21300000, guid: e24a6abf35a22294f8138ea3ce1c1ca1, type: 3}
   id: 2
   unlocked: 0

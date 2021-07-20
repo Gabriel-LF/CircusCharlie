@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Classic Runner
   type: 0
   icon: {fileID: 4281637774074219296, guid: 33b271772678d074abe8abee26b87db7, type: 3}
+  preview: {fileID: 4281637774074219296, guid: 33b271772678d074abe8abee26b87db7, type: 3}
   id: 2
   unlocked: 0

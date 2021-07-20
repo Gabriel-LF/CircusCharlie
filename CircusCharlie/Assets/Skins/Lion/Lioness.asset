@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Lioness
   type: 1
   icon: {fileID: 518539287406071696, guid: a2fc619148d7bdf4fbbbe9c25bb60947, type: 3}
+  preview: {fileID: 518539287406071696, guid: a2fc619148d7bdf4fbbbe9c25bb60947, type: 3}
   id: 2
   unlocked: 0

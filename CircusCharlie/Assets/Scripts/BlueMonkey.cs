@@ -16,10 +16,10 @@ public class BlueMonkey : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //void OnEnable()
+    //{
+    //    gameObject.layer = 0;
+    //}
 
     public void OnTriggerEnter2D(Collider2D hit)
     {
@@ -28,6 +28,13 @@ public class BlueMonkey : MonoBehaviour
             Jump();
         }
     }
+    //void OnCollisionEnter2D(Collision2D hit)
+    //{
+    //    if (hit.gameObject.CompareTag("Player"))
+    //    {
+    //        gameObject.layer = 2;
+    //    }
+    //}
 
     public void Jump()
     {

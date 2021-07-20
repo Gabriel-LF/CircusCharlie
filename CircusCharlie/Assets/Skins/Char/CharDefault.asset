@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Circus Runner
   type: 0
   icon: {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
+  preview: {fileID: 8077574874623730897, guid: f30b62f4a4f79284d87f788d76f492ae, type: 3}
   id: 0
-  unlocked: 0
+  unlocked: 1

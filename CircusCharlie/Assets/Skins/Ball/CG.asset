@@ -15,5 +15,6 @@ MonoBehaviour:
   name: CG Fighter
   type: 4
   icon: {fileID: 21300000, guid: 3de3f943c1629784497e78399c2e99b0, type: 3}
+  preview: {fileID: 21300000, guid: 3de3f943c1629784497e78399c2e99b0, type: 3}
   id: 3
   unlocked: 0

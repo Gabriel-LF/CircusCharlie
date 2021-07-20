@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Alien Pig
   type: 1
   icon: {fileID: 518539287406071696, guid: 3866d97bb2454224f8b0827d8e039866, type: 3}
+  preview: {fileID: 518539287406071696, guid: 3866d97bb2454224f8b0827d8e039866, type: 3}
   id: 6
   unlocked: 0

@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Jake
   type: 0
   icon: {fileID: 8793639957104055765, guid: 0c1d257c9967b2247b8f1417a298b242, type: 3}
+  preview: {fileID: 8793639957104055765, guid: 0c1d257c9967b2247b8f1417a298b242, type: 3}
   id: 6
   unlocked: 0

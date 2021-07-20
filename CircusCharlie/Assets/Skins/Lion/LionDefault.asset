@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Lion
   type: 1
   icon: {fileID: 518539287406071696, guid: 885561432d734ae4d89099b23848af2a, type: 3}
+  preview: {fileID: 518539287406071696, guid: 885561432d734ae4d89099b23848af2a, type: 3}
   id: 0
-  unlocked: 0
+  unlocked: 1

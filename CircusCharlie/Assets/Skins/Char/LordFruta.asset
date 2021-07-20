@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Lord Fruta
   type: 0
   icon: {fileID: 8793639957104055765, guid: f91d96f06ce767d4bb3909e7fd879171, type: 3}
+  preview: {fileID: 8793639957104055765, guid: f91d96f06ce767d4bb3909e7fd879171, type: 3}
   id: 4
   unlocked: 0

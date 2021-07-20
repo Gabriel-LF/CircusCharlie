@@ -13,6 +13,9 @@ public class InventoryManager : MonoBehaviour
     public GameObject myButton;
     public Text myName;
 
+    public List<Button> buttonList = new List<Button>();
+    private bool wait = true;
+
     void Start()
     {
         preview = transform.parent.gameObject.transform.GetChild(1).gameObject;
@@ -23,6 +26,7 @@ public class InventoryManager : MonoBehaviour
             var button = Instantiate(buttonPrefab);
             button.transform.SetParent(transform);
             button.gameObject.GetComponent<Image>().sprite = skin.icon;
+            buttonList.Add(button);
             if (type == ItemType.Char)
                 button.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MainMenu.Instance.charEquiped = skin.id; UpdateSkin(skin.name); });
             if (type == ItemType.Lion)
@@ -37,6 +41,23 @@ public class InventoryManager : MonoBehaviour
                 button.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MainMenu.Instance.swingEquiped = skin.id; UpdateSkin(skin.name); });
             if (type == ItemType.Platform)
                 button.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MainMenu.Instance.platformEquiped = skin.id; UpdateSkin(skin.name); });
+
+            if (skin.unlocked == false) { button.interactable = false; } else { button.interactable = true; }
+
+            wait = false;
+        }
+    }
+
+    void OnEnable()
+    {
+        if(!wait)
+        {
+            int i = 0;
+            foreach (Skin skin in itemList)
+            {
+                if (skin.unlocked == false) { buttonList[i].interactable = false; } else { buttonList[i].interactable = true; }
+                i++;
+            }
         }
     }
 

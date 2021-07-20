@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Arcade Runner
   type: 0
   icon: {fileID: 6971375644381031630, guid: 9740269927b78564db4caa0b8f7e0a9b, type: 3}
+  preview: {fileID: 6971375644381031630, guid: 9740269927b78564db4caa0b8f7e0a9b, type: 3}
   id: 3
   unlocked: 0

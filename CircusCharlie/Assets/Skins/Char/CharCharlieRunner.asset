@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Runner Charlie
   type: 0
   icon: {fileID: 6084859605308855041, guid: d68aaef79ae55b54e83f412f1fbe91a7, type: 3}
+  preview: {fileID: 6084859605308855041, guid: d68aaef79ae55b54e83f412f1fbe91a7, type: 3}
   id: 1
   unlocked: 0

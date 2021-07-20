@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Dark Lion
   type: 1
   icon: {fileID: 518539287406071696, guid: 7dc993a3236cbff4c9ce7c09a10a62ab, type: 3}
+  preview: {fileID: 518539287406071696, guid: 7dc993a3236cbff4c9ce7c09a10a62ab, type: 3}
   id: 1
   unlocked: 0

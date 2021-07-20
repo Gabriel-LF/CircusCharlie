@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Pond's Jaguar
   type: 1
   icon: {fileID: 518539287406071696, guid: b63bc1b899d78b24e95c53a553c8df5a, type: 3}
+  preview: {fileID: 518539287406071696, guid: b63bc1b899d78b24e95c53a553c8df5a, type: 3}
   id: 5
   unlocked: 0

@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour
         {
             gameObject.SetActive(false);
             MainMenu.Instance.collectedCoins += value;
+            MainMenu.Instance.currentCoinText.text = MainMenu.Instance.collectedCoins.ToString();
         }
     }
 }

@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Ronan
   type: 0
   icon: {fileID: 8793639957104055765, guid: 3b67afe3b5e94474fa07f56697d58544, type: 3}
+  preview: {fileID: 8793639957104055765, guid: 3b67afe3b5e94474fa07f56697d58544, type: 3}
   id: 5
   unlocked: 0

@@ -35,6 +35,10 @@ public class SkinSprite : MonoBehaviour
         {
             if (sr != null) { sr.sprite = skin[mm.lionEquiped]; } else { im.sprite = skin[mm.lionEquiped]; }
         }
+        if (type == ItemType.Horse)
+        {
+            if (sr != null) { sr.sprite = skin[mm.horseEquiped]; } else { im.sprite = skin[mm.horseEquiped]; }
+        }
         if (type == ItemType.Ball)
         {
             if (sr != null) { sr.sprite = skin[mm.ballEquiped]; } else { im.sprite = skin[mm.ballEquiped]; }

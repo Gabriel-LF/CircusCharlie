@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Chroma Shape
   type: 4
   icon: {fileID: 21300000, guid: e5f160d5cc746e54390922a83682a8dd, type: 3}
+  preview: {fileID: 21300000, guid: e5f160d5cc746e54390922a83682a8dd, type: 3}
   id: 4
   unlocked: 0

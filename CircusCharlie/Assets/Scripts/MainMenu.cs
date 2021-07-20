@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public Text scoreText;
     public int totalCoins;
     public int collectedCoins;
+    public Text coinText, currentCoinText;
 
     public GameObject player;
 
@@ -26,13 +27,18 @@ public class MainMenu : MonoBehaviour
     {
         Instance = this;
         maxScore = PlayerPrefs.GetInt("MaxScore");
-        scoreText.text = (maxScore.ToString() + "m");
+        totalCoins = PlayerPrefs.GetInt("totalCoins");
+
+        UpdateUI();
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateUI()
     {
-        
+        PlayerPrefs.SetInt("totalCoins", totalCoins);
+
+        scoreText.text = (maxScore.ToString() + "m");
+        coinText.text = totalCoins.ToString();
     }
 
     public void StartGame()

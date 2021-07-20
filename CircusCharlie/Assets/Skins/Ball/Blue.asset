@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Blue Ball
   type: 4
   icon: {fileID: 21300000, guid: 38ae0b6826b753145a1879e10b7760ce, type: 3}
+  preview: {fileID: 21300000, guid: 38ae0b6826b753145a1879e10b7760ce, type: 3}
   id: 1
   unlocked: 0

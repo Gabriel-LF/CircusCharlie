@@ -26,6 +26,8 @@ public class ChangeSkin : MonoBehaviour
             GetComponent<Animator>().runtimeAnimatorController = skins[mm.charEquiped] as RuntimeAnimatorController;
         if (type == ItemType.Lion)
             GetComponent<Animator>().runtimeAnimatorController = skins[mm.lionEquiped] as RuntimeAnimatorController;
+        if (type == ItemType.Horse)
+            GetComponent<Animator>().runtimeAnimatorController = skins[mm.horseEquiped] as RuntimeAnimatorController;
     }
 
     IEnumerator HoldUp()

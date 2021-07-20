@@ -12,7 +12,7 @@ public class Skin : ScriptableObject
 {
     public new string name;
     public ItemType type;
-    public Sprite icon;
+    public Sprite icon, preview;
     public int id;
 
     public bool unlocked;

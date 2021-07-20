@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Tiger
   type: 1
   icon: {fileID: 518539287406071696, guid: 51f31c907d13a2742816bb4c694eefea, type: 3}
+  preview: {fileID: 518539287406071696, guid: 51f31c907d13a2742816bb4c694eefea, type: 3}
   id: 3
   unlocked: 0

@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Ball
   type: 4
   icon: {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
+  preview: {fileID: 21300000, guid: 72f38a10652e76b43bf701903adaf571, type: 3}
   id: 0
-  unlocked: 0
+  unlocked: 1

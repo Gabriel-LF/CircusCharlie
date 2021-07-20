@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Riley
   type: 1
   icon: {fileID: 518539287406071696, guid: b83aa8805ef6c564db52a93439cf4d06, type: 3}
+  preview: {fileID: 518539287406071696, guid: b83aa8805ef6c564db52a93439cf4d06, type: 3}
   id: 4
   unlocked: 0

@@ -130,6 +130,7 @@ public class PlayerProgress : MonoBehaviour
 
         LevelManager.Instance.Restart();
         DifficultyScaler.Instance.Reset();
+        MainMenu.Instance.gameObject.GetComponent<adsUnity>().ShowBanner();
     }
 
     public void Revive()

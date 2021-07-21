@@ -61,10 +61,12 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         player.GetComponent<PlayerMove>().dontMove = false;
+        currentCoinText.text = collectedCoins.ToString();
     }
 
     public void DoubleReward()
     {
         collectedCoins = collectedCoins * 2;
+        player.GetComponent<PlayerProgress>().Restart();
     }
 }

@@ -23,8 +23,8 @@ public class FireStage : MonoBehaviour
     {
         player.position = new Vector2(player.position.x, 0);
 
-        spawnDistance = LevelManager.Instance.playerPosition + 30;
-        spawnDistance2 = LevelManager.Instance.playerPosition + 40;
+        spawnDistance = LevelManager.Instance.playerPosition + 10;
+        spawnDistance2 = LevelManager.Instance.playerPosition + 20;
         int i = 0;
         do {
             spawnDistance += Random.Range(distance1min, distance1max);

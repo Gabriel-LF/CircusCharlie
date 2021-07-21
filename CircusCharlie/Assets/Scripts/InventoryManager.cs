@@ -28,19 +28,40 @@ public class InventoryManager : MonoBehaviour
             button.gameObject.GetComponent<Image>().sprite = skin.icon;
             buttonList.Add(button);
             if (type == ItemType.Char)
+            {
                 button.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MainMenu.Instance.charEquiped = skin.id; UpdateSkin(skin.name); });
+                myName.text = itemList[MainMenu.Instance.charEquiped].name;
+            }   
             if (type == ItemType.Lion)
+            {
                 button.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MainMenu.Instance.lionEquiped = skin.id; UpdateSkin(skin.name); });
+                myName.text = itemList[MainMenu.Instance.lionEquiped].name;
+            } 
             if (type == ItemType.Horse)
+            {
                 button.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MainMenu.Instance.horseEquiped = skin.id; UpdateSkin(skin.name); });
+                myName.text = itemList[MainMenu.Instance.horseEquiped].name;
+            }
             if (type == ItemType.Ball)
+            {
                 button.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MainMenu.Instance.ballEquiped = skin.id; UpdateSkin(skin.name); });
+                myName.text = itemList[MainMenu.Instance.ballEquiped].name;
+            } 
             if (type == ItemType.Rope)
+            {
                 button.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MainMenu.Instance.ropeEquiped = skin.id; UpdateSkin(skin.name); });
+                myName.text = itemList[MainMenu.Instance.ropeEquiped].name;
+            } 
             if (type == ItemType.Swing)
+            {
                 button.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MainMenu.Instance.swingEquiped = skin.id; UpdateSkin(skin.name); });
+                myName.text = itemList[MainMenu.Instance.swingEquiped].name;
+            } 
             if (type == ItemType.Platform)
+            {
                 button.gameObject.GetComponent<Button>().onClick.AddListener(delegate { MainMenu.Instance.platformEquiped = skin.id; UpdateSkin(skin.name); });
+                myName.text = itemList[MainMenu.Instance.platformEquiped].name;
+            }
 
             if (skin.unlocked == false) { button.interactable = false; } else { button.interactable = true; }
 

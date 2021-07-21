@@ -26,6 +26,15 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         Instance = this;
+
+        charEquiped = PlayerPrefs.GetInt("charEquiped");
+        lionEquiped = PlayerPrefs.GetInt("lionEquiped");
+        horseEquiped = PlayerPrefs.GetInt("horseEquiped");
+        ballEquiped = PlayerPrefs.GetInt("ballEquiped");
+        ropeEquiped = PlayerPrefs.GetInt("ropeEquiped");
+        swingEquiped = PlayerPrefs.GetInt("swingEquiped");
+        platformEquiped = PlayerPrefs.GetInt("platformEquiped");
+
         maxScore = PlayerPrefs.GetInt("MaxScore");
         totalCoins = PlayerPrefs.GetInt("totalCoins");
 
@@ -39,10 +48,23 @@ public class MainMenu : MonoBehaviour
 
         scoreText.text = (maxScore.ToString() + "m");
         coinText.text = totalCoins.ToString();
+
+        PlayerPrefs.SetInt("charEquiped", charEquiped);
+        PlayerPrefs.SetInt("lionEquiped", lionEquiped);
+        PlayerPrefs.SetInt("horseEquiped", horseEquiped);
+        PlayerPrefs.SetInt("ballEquiped", ballEquiped);
+        PlayerPrefs.SetInt("ropeEquiped", ropeEquiped);
+        PlayerPrefs.SetInt("swingEquiped", swingEquiped);
+        PlayerPrefs.SetInt("platformEquiped", platformEquiped);
     }
 
     public void StartGame()
     {
         player.GetComponent<PlayerMove>().dontMove = false;
+    }
+
+    public void DoubleReward()
+    {
+        collectedCoins = collectedCoins * 2;
     }
 }

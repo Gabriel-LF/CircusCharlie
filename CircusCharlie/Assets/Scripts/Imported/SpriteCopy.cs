@@ -2,59 +2,9 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 
+#if UNITY_EDITOR
 public class SpriteCopy : EditorWindow
 {
-    public class MenuItems : MonoBehaviour
-    {
-
-        [MenuItem("Sprites/Paste default Slices-Pivots")]
-        static void PasteDefaultSlicesPivotsCharacter()
-        {
-            TextureImporter defaultTextureImporter;
-            string[] nameFilter = new string[1];
-
-            Object[] textures = GetSelectedTextures();
-            Selection.objects = new Object[0];
-
-            foreach (Texture2D texture in textures)
-            {
-                string path = AssetDatabase.GetAssetPath(texture);
-                TextureImporter ti = AssetImporter.GetAtPath(path) as TextureImporter;
-                ti.isReadable = true;
-
-                List<SpriteMetaData> newData = new List<SpriteMetaData>();
-                for (int i = 0; i < ti.spritesheet.Length; i++)
-                {
-                    SpriteMetaData d = ti.spritesheet[i];
-                    defaultTextureImporter = AssetImporter.GetAtPath("Assets/Resources/{nameofyourtemplatetexture.ext}") as TextureImporter;
-                    defaultTextureImporter.isReadable = true;
-
-                    List<SpriteMetaData> defaultData = new List<SpriteMetaData>();
-                    for (int j = 0; j < defaultTextureImporter.spritesheet.Length; j++)
-                    {
-                        if (defaultTextureImporter.spritesheet[j].name.Substring(defaultTextureImporter.spritesheet[j].name.IndexOf('_'), (defaultTextureImporter.spritesheet[j].name.Length - defaultTextureImporter.spritesheet[j].name.IndexOf('_'))) ==
-                           d.name.Substring(d.name.IndexOf('_'), (d.name.Length - d.name.IndexOf('_'))))
-                        {
-                            d.alignment = defaultTextureImporter.spritesheet[j].alignment;
-                            d.border = defaultTextureImporter.spritesheet[j].border;
-                            d.pivot = defaultTextureImporter.spritesheet[j].pivot;
-                            d.rect = defaultTextureImporter.spritesheet[j].rect;
-                            Debug.Log("Slice and pivot copied to " + d.name + " from " + defaultTextureImporter.spritesheet[j].name);
-                        }
-                    }
-                    newData.Add(d);
-                }
-                ti.spritesheet = newData.ToArray();
-                AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
-            }
-        }
-
-        static Object[] GetSelectedTextures()
-        {
-            return Selection.GetFiltered(typeof(Texture2D), SelectionMode.DeepAssets);
-        }
-    }
-
     Object copyFrom;
     Object copyTo;
 
@@ -125,3 +75,4 @@ public class SpriteCopy : EditorWindow
 
     }
 }
+#endif

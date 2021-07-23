@@ -18,13 +18,16 @@ public class jump : MonoBehaviour
     public float monkeyJumpSpeed;
     public float jumpSpeed;
     public float jumpDelay = 0.25f;
-    public float gravity = 1;
+    private float gravity;
+    public float regularGravity;
     public float fallMultiplier = 5;
     public float linearDrag = 4;
 
     public bool hasBall;
     public Transform ballPosition;
     public float ballTimer;
+
+    public bool isSwinging;
 
     public Animator anim;
     public AudioSource audios;
@@ -33,6 +36,7 @@ public class jump : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gravity = regularGravity;
     }
 
     // Update is called once per frame
@@ -54,13 +58,36 @@ public class jump : MonoBehaviour
 
         if (!hasBall && gameObject.GetComponent<PlayerAnimation>().ballStage == true)
             ballTimer += Time.deltaTime;
+
+        if (onGround && gameObject.GetComponent<PlayerAnimation>().swingStage == true)
+            gameObject.GetComponent<PlayerProgress>().Die();
     }
 
     private void FixedUpdate()
     {
-        if(jumpTimer > Time.time && onGround)
+        gameObject.GetComponent<PlayerAnimation>().anim.SetBool("isSwinging", isSwinging);
+        if (jumpTimer > Time.time && onGround)
         {
             Jump();
+        }
+        if (jumpTimer > Time.time && isSwinging)
+        {
+            gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<SwingType>().RopeRelease();
+            transform.SetParent(null);
+            transform.rotation = Quaternion.identity;
+            gameObject.GetComponent<PlayerMove>().dontMove = false;
+            Jump();
+            isSwinging = false;
+        }
+
+        if (isSwinging)
+        {
+            gravity = 0;
+            gameObject.GetComponent<PlayerMove>().dontMove = true;
+            transform.localPosition = new Vector2(0,0);
+            
+        } else {
+            gravity = regularGravity;
         }
     }
 

@@ -20,6 +20,8 @@ public class PlayerProgress : MonoBehaviour
     public int doubledCoins;
     public Text[] coinText;
 
+    public Transform safeSpot;
+
     public AudioSource audios;
     public AudioClip death, stage;
 
@@ -54,6 +56,16 @@ public class PlayerProgress : MonoBehaviour
         if (hit.gameObject.CompareTag("Hazard") && !imortal)
         {
             StartCoroutine(Death());
+        }
+        if (hit.gameObject.CompareTag("Rope") && gameObject.GetComponent<jump>().isSwinging == false)
+        {
+            gameObject.GetComponent<PlayerAnimation>().currentSwing = hit.gameObject;
+            safeSpot = hit.transform;
+            transform.SetParent(hit.transform, false);
+            gameObject.GetComponent<jump>().isSwinging = true;
+            gameObject.GetComponent<PlayerAnimation>().anim.SetTrigger("Swing");
+            if (hit.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<SwingType>().stopped == true)
+                hit.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<SwingType>().anim.SetTrigger("GoRight");
         }
     }
     void OnCollisionEnter2D(Collision2D hit)
@@ -140,9 +152,14 @@ public class PlayerProgress : MonoBehaviour
         deathScreen[0].SetActive(false);
         Time.timeScale = 1;
         gameObject.GetComponent<PlayerMove>().dontMove = false;
-        //gameObject.GetComponent<PlayerAnimation>().anim.SetTrigger("Revived");
         gameObject.GetComponent<PlayerAnimation>().lion.GetComponent<Animator>().SetTrigger("Revived");
         gameObject.GetComponent<PlayerAnimation>().UpdateAnim();
+
+        if (gameObject.GetComponent<PlayerAnimation>().swingStage)
+        {
+            transform.position = safeSpot.position;
+            imortal = false;
+        }
     }
 
     IEnumerator RemoveImortal()

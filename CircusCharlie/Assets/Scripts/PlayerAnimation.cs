@@ -21,6 +21,7 @@ public class PlayerAnimation : MonoBehaviour
     public GameObject horse;
 
     public bool swingStage;
+    public GameObject currentSwing;
 
     public void UpdateAnim()
     {
@@ -52,5 +53,17 @@ public class PlayerAnimation : MonoBehaviour
             gameObject.GetComponent<jump>().hasBall = true;
             ball.SetActive(true);
         } else { player.localPosition = new Vector2(player.localPosition.x, 0.2f); ball.SetActive(false); }
+        if (swingStage)
+        {
+            
+        }
+    }
+
+    void Update()
+    {
+        if (gameObject.GetComponent<jump>().isSwinging)
+        {
+            anim.SetFloat("SwingState", currentSwing.transform.rotation.z);
+        }
     }
 }

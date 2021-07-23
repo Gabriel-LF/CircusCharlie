@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public GameObject monkeyStage;
     public GameObject horseStage;
     public GameObject ballStage;
+    public GameObject swingStage;
 
     public GameObject rope;
 
@@ -32,6 +33,7 @@ public class LevelManager : MonoBehaviour
         //monkeyStage.GetComponent<MonkeyStage>().StartLevel();
         //horseStage.GetComponent<HorseStage>().StartLevel();
         //ballStage.GetComponent<BallStage>().StartLevel();
+        //swingStage.GetComponent<SwingStage>().StartLevel();
 
         player.GetComponent<PlayerAnimation>().menuStage = false;
         player.GetComponent<PlayerAnimation>().fireStage = true;
@@ -40,7 +42,7 @@ public class LevelManager : MonoBehaviour
     
     public void LoadLevel()
     {
-        rng = Random.Range(0, 4);
+        rng = Random.Range(4, 5);
         if (rng == 0)
         {
             fireStage.GetComponent<FireStage>().StartLevel();
@@ -65,11 +67,13 @@ public class LevelManager : MonoBehaviour
         {
             ballStage.GetComponent<BallStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().ballStage = true;
-        }
-        else { player.GetComponent<PlayerAnimation>().ballStage = false; }
+        } else { player.GetComponent<PlayerAnimation>().ballStage = false; }
 
         if (rng == 4)
-            fireStage.GetComponent<FireStage>().StartLevel();
+        {
+            swingStage.GetComponent<SwingStage>().StartLevel();
+            player.GetComponent<PlayerAnimation>().swingStage = true;
+        } else { player.GetComponent<PlayerAnimation>().swingStage = false; }
 
         player.GetComponent<PlayerAnimation>().UpdateAnim();
     }

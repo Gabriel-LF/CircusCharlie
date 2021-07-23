@@ -729,6 +729,9 @@ MonoBehaviour:
   - tag: Confete
     prefab: {fileID: 5968408354325858430, guid: 103cbc138cbfac9469bd455cc5017e68, type: 3}
     size: 4
+  - tag: Swing
+    prefab: {fileID: 7186598947576458148, guid: 14e9348d33d0bba449acdf0a69ed18d3, type: 3}
+    size: 10
 --- !u!4 &77883344
 Transform:
   m_ObjectHideFlags: 0
@@ -849,6 +852,56 @@ MonoBehaviour:
   sr: {fileID: 0}
   im: {fileID: 0}
   wait: 1
+--- !u!1 &104582119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 104582120}
+  - component: {fileID: 104582121}
+  m_Layer: 0
+  m_Name: SwingStage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &104582120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104582119}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1116225807}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &104582121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104582119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78e579ebcea12c4fb548c1c6dbe11a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swingsToSpawn: 3
+  begin: 8
+  spawnDistance: 0
+  player: {fileID: 406311424}
+  obstacle: 0
+  distancemin: 0
+  distancemax: 0
 --- !u!1 &158949092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,12 +2469,13 @@ MonoBehaviour:
   monkeyJumpSpeed: 7
   jumpSpeed: 9
   jumpDelay: 0.25
-  gravity: 0.5
+  regularGravity: 0.5
   fallMultiplier: 4
   linearDrag: 7
   hasBall: 0
   ballPosition: {fileID: 7601576066734690601}
   ballTimer: 0
+  isSwinging: 0
   anim: {fileID: 1038159276}
   audios: {fileID: 406311431}
   jumpSound: {fileID: 8300000, guid: 381ed7a3103282f488ceb8e77b1adb3e, type: 3}
@@ -2474,6 +2528,7 @@ MonoBehaviour:
   horseStage: 0
   horse: {fileID: 1237013533}
   swingStage: 0
+  currentSwing: {fileID: 0}
 --- !u!82 &406311431
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6080,6 +6135,7 @@ Transform:
   - {fileID: 291749397}
   - {fileID: 1832357281}
   - {fileID: 648631363}
+  - {fileID: 104582120}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6102,6 +6158,7 @@ MonoBehaviour:
   monkeyStage: {fileID: 291749396}
   horseStage: {fileID: 1832357280}
   ballStage: {fileID: 648631362}
+  swingStage: {fileID: 104582119}
   rope: {fileID: 13117032}
   playerPosition: 0
   rng: 0
@@ -6140,6 +6197,7 @@ MonoBehaviour:
   monkey: {fileID: 291749398}
   horse: {fileID: 1832357282}
   ball: {fileID: 648631364}
+  swing: {fileID: 104582121}
   audios: {fileID: 1116225811}
   wave: {fileID: 8300000, guid: d0aa0e549ea4e5c4a9769eb19148286c, type: 3}
 --- !u!82 &1116225811

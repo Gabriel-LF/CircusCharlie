@@ -24,7 +24,7 @@ public class InventoryManager : MonoBehaviour
         foreach (Skin skin in itemList)
         {
             var button = Instantiate(buttonPrefab);
-            button.transform.SetParent(transform);
+            button.transform.SetParent(transform, false);
             button.gameObject.GetComponent<Image>().sprite = skin.icon;
             buttonList.Add(button);
             if (type == ItemType.Char)

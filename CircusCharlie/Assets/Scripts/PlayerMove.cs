@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour
                 isHalt = false;
             }
         }
-        if(cooldown)
+        if(cooldown && gameObject.GetComponent<jump>().isSwinging == false)
         {
             currentCooldown += Time.deltaTime;
             if(currentCooldown >= cooldownDuration)
@@ -76,11 +76,16 @@ public class PlayerMove : MonoBehaviour
         {
             ready = false;
             currentDuration = haltDuration;
-            currentCooldown = 0;
-            isHalt = true;
+            currentCooldown = 0;  
 
             audios.clip = halt;
             audios.Play();
+
+            isHalt = true;
+            if (gameObject.GetComponent<jump>().isSwinging == true) 
+            {
+                gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<SwingType>().SlowDown();
+            } 
         }
     }
 }

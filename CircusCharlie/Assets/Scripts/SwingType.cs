@@ -40,4 +40,15 @@ public class SwingType : MonoBehaviour
         yield return new WaitForSeconds(3);
         hanger.layer = 0;
     }
+
+    public void SlowDown()
+    {
+        StartCoroutine(SlowTimer());
+    }
+    IEnumerator SlowTimer()
+    {
+        anim.speed = 0.5f;
+        yield return new WaitForSeconds(2);
+        anim.speed = 1f;
+    }
 }

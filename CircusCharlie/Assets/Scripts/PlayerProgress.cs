@@ -55,7 +55,7 @@ public class PlayerProgress : MonoBehaviour
         }
         if (hit.gameObject.CompareTag("Hazard") && !imortal)
         {
-            StartCoroutine(Death());
+            StartCoroutine(Death(hit.gameObject.name));
         }
         if (hit.gameObject.CompareTag("Rope") && gameObject.GetComponent<jump>().isSwinging == false)
         {
@@ -72,7 +72,7 @@ public class PlayerProgress : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Hazard") && !imortal)
         {
-            StartCoroutine(Death());
+            StartCoroutine(Death(hit.gameObject.name));
         }
         if (hit.gameObject.CompareTag("Jumper"))
         {
@@ -86,8 +86,9 @@ public class PlayerProgress : MonoBehaviour
         }
     }
 
-    IEnumerator Death()
+    IEnumerator Death(string name)
     {
+        Debug.Log(name + " me matou!");
         Play(death);
         deathCount++;
 
@@ -112,7 +113,7 @@ public class PlayerProgress : MonoBehaviour
     public void Die()
     {
         if(!imortal)
-        StartCoroutine(Death());
+            StartCoroutine(Death("Gasparzinbho"));
     }
 
     public void Play(AudioClip clip)

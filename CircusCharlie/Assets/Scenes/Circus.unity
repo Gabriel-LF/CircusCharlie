@@ -307,9 +307,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songs:
-  - {fileID: 8300000, guid: 671d228484f04b441b46e1bd4aee6a6b, type: 3}
-  - {fileID: 8300000, guid: 3f26aacd63f1d0447a5f71e6b200d8a0, type: 3}
-  rng: 0
+  - {fileID: 8300000, guid: 28f060e50690b334a8992fdc59f44904, type: 3}
+  - {fileID: 8300000, guid: 237fcb1d69f0eab43bcd005af669dc5a, type: 3}
+  - {fileID: 8300000, guid: afe0712f94ff0e545a748df89c5def2b, type: 3}
+  - {fileID: 8300000, guid: 1829dbc07863b79449158b7afea10c93, type: 3}
 --- !u!4 &19518922
 Transform:
   m_ObjectHideFlags: 0
@@ -336,7 +337,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -732,6 +733,9 @@ MonoBehaviour:
   - tag: Swing
     prefab: {fileID: 7186598947576458148, guid: 14e9348d33d0bba449acdf0a69ed18d3, type: 3}
     size: 10
+  - tag: ObstacleChanger
+    prefab: {fileID: 5890833589998136369, guid: 87b69a5442e2c1444934c9412323da63, type: 3}
+    size: 2
 --- !u!4 &77883344
 Transform:
   m_ObjectHideFlags: 0
@@ -902,6 +906,7 @@ MonoBehaviour:
   obstacle: 0
   distancemin: 0
   distancemax: 0
+  lastWasLeft: 0
 --- !u!1 &158949092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1373,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 382433545}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: UpdateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 382433545}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: UpdateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1586665382}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1378,24 +1407,12 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 382433545}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: UpdateUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 382433545}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: UpdateUI
-        m_Mode: 1
+      - m_Target: {fileID: 1586665382}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2423,6 +2440,7 @@ MonoBehaviour:
   coinText:
   - {fileID: 1333544841}
   - {fileID: 971359516}
+  safeSpot: {fileID: 0}
   audios: {fileID: 406311431}
   death: {fileID: 8300000, guid: 52e63417c9dc879498b929bb39cb849d, type: 3}
   stage: {fileID: 8300000, guid: 65d123582ddea8d4bb8b84c308a40636, type: 3}
@@ -2466,7 +2484,7 @@ MonoBehaviour:
   groundLenght: 1
   colliderOffset: {x: 0.47, y: 0, z: 0}
   defaultJumpSpeed: 9
-  monkeyJumpSpeed: 7
+  monkeyJumpSpeed: 7.5
   jumpSpeed: 9
   jumpDelay: 0.25
   regularGravity: 0.5
@@ -2541,7 +2559,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6154,6 +6172,7 @@ MonoBehaviour:
   player: {fileID: 406311423}
   mainMenu: {fileID: 1749641228}
   gameUI: {fileID: 504457568}
+  mp: {fileID: 19518921}
   fireStage: {fileID: 704105248}
   monkeyStage: {fileID: 291749396}
   horseStage: {fileID: 1832357280}
@@ -6212,7 +6231,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

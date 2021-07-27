@@ -59,6 +59,7 @@ public class PlayerProgress : MonoBehaviour
         }
         if (hit.gameObject.CompareTag("Rope") && gameObject.GetComponent<jump>().isSwinging == false)
         {
+            imortal = true;
             gameObject.GetComponent<PlayerAnimation>().currentSwing = hit.gameObject;
             safeSpot = hit.transform;
             transform.SetParent(hit.transform, false);
@@ -113,7 +114,7 @@ public class PlayerProgress : MonoBehaviour
     public void Die()
     {
         if(!imortal)
-            StartCoroutine(Death("Gasparzinbho"));
+            StartCoroutine(Death("Cai de cu"));
     }
 
     public void Play(AudioClip clip)

@@ -15,7 +15,7 @@ public class GroundGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.position.x > distanceWalked)
+        //if (player.position.x > distanceWalked)
             distanceWalked = player.position.x;
 
         dif = distanceWalked % 25;

@@ -8,29 +8,23 @@ public class MusicPlayer : MonoBehaviour
 {
     public AudioClip[] songs;
     private AudioSource audioSource;
-    public int rng;
+    private int playingSong;
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.loop = false;
+        audioSource.loop = true;
         audioSource.clip = songs[0];
         audioSource.Play();
     }
 
-    private AudioClip GetRandomClip()
+    public void GetSong(int s)
     {
-        rng = Random.Range(0, songs.Length);
-        return songs[rng];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!audioSource.isPlaying)
+        if (s != playingSong)
         {
-            audioSource.clip = GetRandomClip();
+            playingSong = s;
+            audioSource.clip = songs[playingSong];
             audioSource.Play();
         }
     }

@@ -30,7 +30,7 @@ public class SwingStage : MonoBehaviour
             i++;
         } while (i < obstacle);
         if (i >= obstacle)
-            ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance, 0, 0), Quaternion.Euler(0, 0, 0));
+            ObjectPooler.Instance.SpawnFromPool("ObstacleChanger", new Vector3(spawnDistance, 0, 0), Quaternion.Euler(0, 0, 0));
     }
 
     public void SpawnObstacle(int i)

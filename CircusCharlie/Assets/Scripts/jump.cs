@@ -78,6 +78,7 @@ public class jump : MonoBehaviour
             gameObject.GetComponent<PlayerMove>().dontMove = false;
             Jump();
             isSwinging = false;
+            gameObject.GetComponent<PlayerProgress>().imortal = false;
         }
 
         if (isSwinging)

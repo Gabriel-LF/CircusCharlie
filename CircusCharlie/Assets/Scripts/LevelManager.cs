@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     public GameObject player;
     public GameObject mainMenu;
     public GameObject gameUI;
+    public MusicPlayer mp;
 
     public static LevelManager Instance;
     public GameObject fireStage;
@@ -38,6 +39,8 @@ public class LevelManager : MonoBehaviour
         player.GetComponent<PlayerAnimation>().menuStage = false;
         player.GetComponent<PlayerAnimation>().fireStage = true;
         player.GetComponent<PlayerAnimation>().UpdateAnim();
+
+        mp.GetSong(0);
     }
     
     public void LoadLevel()
@@ -47,6 +50,7 @@ public class LevelManager : MonoBehaviour
         {
             fireStage.GetComponent<FireStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().fireStage = true;
+            mp.GetSong(0);
         } else { player.GetComponent<PlayerAnimation>().fireStage = false; }
 
         if (rng == 1)
@@ -55,24 +59,28 @@ public class LevelManager : MonoBehaviour
             rope.SetActive(true);
             rope.GetComponent<Animator>().SetTrigger("RopeIn");
             player.GetComponent<PlayerAnimation>().monkeyStage = true;
+            mp.GetSong(1);
         } else { StartCoroutine(RopeAnim()); player.GetComponent<PlayerAnimation>().monkeyStage = false; }
             
         if (rng == 2)
         {
             horseStage.GetComponent<HorseStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().horseStage = true;
+            mp.GetSong(0);
         } else { player.GetComponent<PlayerAnimation>().horseStage = false; }
 
         if (rng == 3)
         {
             ballStage.GetComponent<BallStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().ballStage = true;
+            mp.GetSong(1);
         } else { player.GetComponent<PlayerAnimation>().ballStage = false; }
 
         if (rng == 4)
         {
             swingStage.GetComponent<SwingStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().swingStage = true;
+            mp.GetSong(2);
         } else { player.GetComponent<PlayerAnimation>().swingStage = false; }
 
         player.GetComponent<PlayerAnimation>().UpdateAnim();

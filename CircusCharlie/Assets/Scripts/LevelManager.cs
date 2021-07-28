@@ -15,11 +15,15 @@ public class LevelManager : MonoBehaviour
     public GameObject horseStage;
     public GameObject ballStage;
     public GameObject swingStage;
+    public GameObject clownStage;
 
     public GameObject rope;
 
     public float playerPosition = 0;
     public int rng;
+
+    public CameraController camera;
+    public GameObject follow;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,7 @@ public class LevelManager : MonoBehaviour
         //horseStage.GetComponent<HorseStage>().StartLevel();
         //ballStage.GetComponent<BallStage>().StartLevel();
         //swingStage.GetComponent<SwingStage>().StartLevel();
+        //clownStage.GetComponent<ClownStage>().StartLevel();
 
         player.GetComponent<PlayerAnimation>().menuStage = false;
         player.GetComponent<PlayerAnimation>().fireStage = true;
@@ -45,7 +50,7 @@ public class LevelManager : MonoBehaviour
     
     public void LoadLevel()
     {
-        rng = Random.Range(4, 5);
+        rng = Random.Range(5, 6);
         if (rng == 0)
         {
             fireStage.GetComponent<FireStage>().StartLevel();
@@ -81,7 +86,16 @@ public class LevelManager : MonoBehaviour
             swingStage.GetComponent<SwingStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().swingStage = true;
             mp.GetSong(2);
-        } else { player.GetComponent<PlayerAnimation>().swingStage = false; }
+            camera.player = follow.transform;
+        } else { player.GetComponent<PlayerAnimation>().swingStage = false; camera.player = player.transform; }
+
+        if (rng == 5)
+        {
+            clownStage.GetComponent<ClownStage>().StartLevel();
+            player.GetComponent<PlayerAnimation>().clownStage = true;
+            mp.GetSong(2);
+        }
+        else { player.GetComponent<PlayerAnimation>().clownStage = false;}
 
         player.GetComponent<PlayerAnimation>().UpdateAnim();
     }

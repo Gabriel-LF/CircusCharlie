@@ -134,6 +134,8 @@ public class PlayerProgress : MonoBehaviour
         imortal = false;
         freeHorse = false;
 
+        LevelManager.Instance.camera.player = LevelManager.Instance.player.transform;
+
         deathCount = 0;
         deathScreen[0].SetActive(false);
         deathScreen[1].SetActive(false);

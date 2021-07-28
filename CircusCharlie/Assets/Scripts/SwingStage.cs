@@ -21,7 +21,7 @@ public class SwingStage : MonoBehaviour
     {
         player.position = new Vector2(player.position.x, 0);
 
-        spawnDistance = LevelManager.Instance.playerPosition + 15;
+        spawnDistance = LevelManager.Instance.playerPosition + 10;
         int i = 0;
         do
         {

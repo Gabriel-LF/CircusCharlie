@@ -23,6 +23,8 @@ public class PlayerAnimation : MonoBehaviour
     public bool swingStage;
     public GameObject currentSwing;
 
+    public bool clownStage;
+
     public void UpdateAnim()
     {
         ObjectPooler.Instance.SpawnFromPool("Confete", new Vector3(player.position.x + 1, player.position.y, player.position.z), Quaternion.Euler(0, 0, 0));
@@ -53,9 +55,9 @@ public class PlayerAnimation : MonoBehaviour
             gameObject.GetComponent<jump>().hasBall = true;
             ball.SetActive(true);
         } else { player.localPosition = new Vector2(player.localPosition.x, 0.2f); ball.SetActive(false); }
-        if (swingStage)
+        if (clownStage)
         {
-            
+            anim.SetTrigger("Walk");
         }
     }
 

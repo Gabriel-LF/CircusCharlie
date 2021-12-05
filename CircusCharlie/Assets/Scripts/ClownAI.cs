@@ -15,5 +15,8 @@ public class ClownAI : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         myProjectile.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        myProjectile.transform.localPosition = new Vector3(0, 0, 0);
+        StartCoroutine(Throw());
     }
 }

@@ -12,6 +12,7 @@ public class DifficultyScaler : MonoBehaviour
     public HorseStage horse;
     public BallStage ball;
     public SwingStage swing;
+    public ClownStage clown;
 
     public AudioSource audios;
     public AudioClip wave;
@@ -51,6 +52,9 @@ public class DifficultyScaler : MonoBehaviour
 
             swing.obstacle = 4;
             swing.distancemin = swing.begin; swing.distancemax = swing.begin + 1;
+
+            clown.obstacle = 10;
+            clown.distancemin = clown.begin + 1; clown.distancemax = clown.begin + 2;
         }
         if (wavesSurvived > 10)
         {
@@ -76,11 +80,16 @@ public class DifficultyScaler : MonoBehaviour
 
             swing.obstacle = 5;
             swing.distancemin = swing.begin; swing.distancemax = swing.begin + 1;
+
+            clown.obstacle = 13;
+            clown.distancemin = clown.begin + 2; clown.distancemax = clown.begin + 3;
         }
     }
 
     public void Reset()
     {
+        clown.startingPlatform.gameObject.SetActive(false);
+
         wavesSurvived = 0;
         fire.obstacle1 = fire.circlesToSpawn; fire.obstacle2 = fire.jarsToSpawn;
         fire.distance1min = fire.begin1; fire.distance1max = fire.begin1 + 1;
@@ -98,5 +107,8 @@ public class DifficultyScaler : MonoBehaviour
 
         swing.obstacle = swing.swingsToSpawn;
         swing.distancemin = swing.begin; swing.distancemax = swing.begin + 1;
+
+        clown.obstacle = clown.platformsToSpawn;
+        clown.distancemin = clown.begin; clown.distancemax = clown.begin + 1;
     }
 }

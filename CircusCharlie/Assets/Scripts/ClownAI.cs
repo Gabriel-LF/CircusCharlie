@@ -13,7 +13,7 @@ public class ClownAI : MonoBehaviour
 
     IEnumerator Throw()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(Random.Range(2,4));
         myProjectile.SetActive(true);
         yield return new WaitForSeconds(3f);
         myProjectile.transform.localPosition = new Vector3(0, 0, 0);

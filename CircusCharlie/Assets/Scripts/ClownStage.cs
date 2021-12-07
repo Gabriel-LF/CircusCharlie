@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ClownStage : MonoBehaviour
 {
+    // MIN HEIGHT IS 0, MAX HEIGHT IS 6
+
     public int platformsToSpawn;
     public float begin;
 
@@ -16,10 +18,12 @@ public class ClownStage : MonoBehaviour
     public float distancemin, distancemax;
 
     public Transform startingPlatform;
+    public float currentHeight;
 
     public void StartLevel()
     {
         StartCoroutine(PlatformAnim());
+        currentHeight = 2.5f;
 
         spawnDistance = LevelManager.Instance.playerPosition + 15;
         int i = 0;
@@ -36,9 +40,11 @@ public class ClownStage : MonoBehaviour
 
     public void SpawnObstacle(int i)
     {
-        GameObject platform = ObjectPooler.Instance.SpawnFromPool("Platform", new Vector3(spawnDistance, 2.5f, 0), Quaternion.Euler(0, 0, 0));
-        //if (i == 0)
-        //    player.position = platform.transform.position;
+        currentHeight += Random.Range(-3f,3f);
+        if (currentHeight > 6) currentHeight = 6;
+        if (currentHeight < 0.5f) currentHeight = 0.5f;
+
+        GameObject platform = ObjectPooler.Instance.SpawnFromPool("Platform", new Vector3(spawnDistance, currentHeight, 0), Quaternion.Euler(0, 0, 0));
     }
     public void SpawnClown(int rng)
     {

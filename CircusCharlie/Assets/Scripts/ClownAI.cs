@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClownAI : MonoBehaviour
 {
     public GameObject myProjectile;
+    [SerializeField] float cooldown;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -13,9 +14,9 @@ public class ClownAI : MonoBehaviour
 
     IEnumerator Throw()
     {
-        yield return new WaitForSeconds(Random.Range(2,4));
+        yield return new WaitForSeconds(Random.Range(cooldown - 1,cooldown + 2));
         myProjectile.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(cooldown);
         myProjectile.transform.localPosition = new Vector3(0, 0, 0);
         StartCoroutine(Throw());
     }

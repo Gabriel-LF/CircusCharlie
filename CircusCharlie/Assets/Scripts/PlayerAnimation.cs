@@ -25,6 +25,8 @@ public class PlayerAnimation : MonoBehaviour
 
     public bool clownStage;
 
+    public bool bonusStage;
+
     public void UpdateAnim()
     {
         ObjectPooler.Instance.SpawnFromPool("Confete", new Vector3(player.position.x + 1, player.position.y, player.position.z), Quaternion.Euler(0, 0, 0));
@@ -58,6 +60,11 @@ public class PlayerAnimation : MonoBehaviour
         if (clownStage)
         {
             anim.SetTrigger("Walk");
+        }
+        if (bonusStage)
+        {
+            lion.SetActive(true);
+            anim.SetTrigger("Mount");
         }
     }
 

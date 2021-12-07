@@ -25,6 +25,8 @@ public class PlayerProgress : MonoBehaviour
     public AudioSource audios;
     public AudioClip death, stage;
 
+    public GameObject revivalPlatform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -163,6 +165,12 @@ public class PlayerProgress : MonoBehaviour
         {
             transform.position = safeSpot.position;
             imortal = false;
+        }
+        if (gameObject.GetComponent<PlayerAnimation>().clownStage)
+        {
+            transform.position = new Vector2(transform.position.x, 4.13f); ;
+            revivalPlatform.transform.position = new Vector2(transform.position.x + 5, revivalPlatform.transform.position.y);
+            revivalPlatform.SetActive(true);
         }
     }
 

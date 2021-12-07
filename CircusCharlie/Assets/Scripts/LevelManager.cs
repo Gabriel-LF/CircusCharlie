@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     public GameObject ballStage;
     public GameObject swingStage;
     public GameObject clownStage;
+    public GameObject bonusStage;
 
     public GameObject rope;
 
@@ -34,12 +35,13 @@ public class LevelManager : MonoBehaviour
     public void StartGame()
     {
         //player.GetComponent<PlayerAnimation>().ballStage = true;
-        fireStage.GetComponent<FireStage>().StartLevel();
+        //fireStage.GetComponent<FireStage>().StartLevel();
         //monkeyStage.GetComponent<MonkeyStage>().StartLevel();
         //horseStage.GetComponent<HorseStage>().StartLevel();
         //ballStage.GetComponent<BallStage>().StartLevel();
         //swingStage.GetComponent<SwingStage>().StartLevel();
         //clownStage.GetComponent<ClownStage>().StartLevel();
+        bonusStage.GetComponent<BonusStage>().StartLevel();
 
         player.GetComponent<PlayerAnimation>().menuStage = false;
         player.GetComponent<PlayerAnimation>().fireStage = true;
@@ -50,9 +52,10 @@ public class LevelManager : MonoBehaviour
     
     public void LoadLevel()
     {
-        rng = Random.Range(5, 6);
+        rng = Random.Range(0, 6);
         if (rng == 0)
         {
+            StartCoroutine(QuickImortal());
             fireStage.GetComponent<FireStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().fireStage = true;
             mp.GetSong(0);
@@ -60,6 +63,7 @@ public class LevelManager : MonoBehaviour
 
         if (rng == 1)
         {
+            StartCoroutine(QuickImortal());
             monkeyStage.GetComponent<MonkeyStage>().StartLevel();
             rope.SetActive(true);
             rope.GetComponent<Animator>().SetTrigger("RopeIn");
@@ -69,6 +73,7 @@ public class LevelManager : MonoBehaviour
             
         if (rng == 2)
         {
+            StartCoroutine(QuickImortal());
             horseStage.GetComponent<HorseStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().horseStage = true;
             mp.GetSong(0);
@@ -76,6 +81,7 @@ public class LevelManager : MonoBehaviour
 
         if (rng == 3)
         {
+            StartCoroutine(QuickImortal());
             ballStage.GetComponent<BallStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().ballStage = true;
             mp.GetSong(1);
@@ -91,11 +97,20 @@ public class LevelManager : MonoBehaviour
 
         if (rng == 5)
         {
+            StartCoroutine(QuickImortal());
             clownStage.GetComponent<ClownStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().clownStage = true;
             mp.GetSong(2);
         }
         else { player.GetComponent<PlayerAnimation>().clownStage = false;}
+        if (rng == 6)
+        {
+            StartCoroutine(QuickImortal());
+            bonusStage.GetComponent<BonusStage>().StartLevel();
+            player.GetComponent<PlayerAnimation>().bonusStage = true;
+            mp.GetSong(2);
+        }
+        else { player.GetComponent<PlayerAnimation>().bonusStage = false; }
 
         player.GetComponent<PlayerAnimation>().UpdateAnim();
     }
@@ -114,6 +129,8 @@ public class LevelManager : MonoBehaviour
         player.GetComponent<PlayerAnimation>().ballStage = false;
         player.GetComponent<PlayerAnimation>().horseStage = false;
         player.GetComponent<PlayerAnimation>().swingStage = false;
+        player.GetComponent<PlayerAnimation>().clownStage = false;
+        player.GetComponent<PlayerAnimation>().bonusStage = false;
         player.GetComponent<PlayerAnimation>().UpdateAnim();
 
         player.GetComponent<jump>().hasBall = false;
@@ -127,5 +144,12 @@ public class LevelManager : MonoBehaviour
         rope.GetComponent<Animator>().SetTrigger("RopeOut");
         yield return new WaitForSeconds(0.3f);
         rope.SetActive(false);
+    }
+
+    IEnumerator QuickImortal()
+    {
+        player.GetComponent<PlayerProgress>().imortal = true;
+        yield return new WaitForSeconds(1);
+        player.GetComponent<PlayerProgress>().imortal = false;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class LevelManager : MonoBehaviour
     public CameraController camera;
     public GameObject follow;
 
+    public Button haltButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,13 +38,13 @@ public class LevelManager : MonoBehaviour
     public void StartGame()
     {
         //player.GetComponent<PlayerAnimation>().ballStage = true;
-        //fireStage.GetComponent<FireStage>().StartLevel();
+        fireStage.GetComponent<FireStage>().StartLevel();
         //monkeyStage.GetComponent<MonkeyStage>().StartLevel();
         //horseStage.GetComponent<HorseStage>().StartLevel();
         //ballStage.GetComponent<BallStage>().StartLevel();
         //swingStage.GetComponent<SwingStage>().StartLevel();
         //clownStage.GetComponent<ClownStage>().StartLevel();
-        bonusStage.GetComponent<BonusStage>().StartLevel();
+        //bonusStage.GetComponent<BonusStage>().StartLevel();
 
         player.GetComponent<PlayerAnimation>().menuStage = false;
         player.GetComponent<PlayerAnimation>().fireStage = true;
@@ -52,8 +55,8 @@ public class LevelManager : MonoBehaviour
     
     public void LoadLevel()
     {
-        rng = Random.Range(0, 6);
-        if (rng == 0)
+        rng = Random.Range(0, 13);
+        if (rng == 0 || rng == 1)
         {
             StartCoroutine(QuickImortal());
             fireStage.GetComponent<FireStage>().StartLevel();
@@ -61,7 +64,7 @@ public class LevelManager : MonoBehaviour
             mp.GetSong(0);
         } else { player.GetComponent<PlayerAnimation>().fireStage = false; }
 
-        if (rng == 1)
+        if (rng == 2 || rng == 3)
         {
             StartCoroutine(QuickImortal());
             monkeyStage.GetComponent<MonkeyStage>().StartLevel();
@@ -71,7 +74,7 @@ public class LevelManager : MonoBehaviour
             mp.GetSong(1);
         } else { StartCoroutine(RopeAnim()); player.GetComponent<PlayerAnimation>().monkeyStage = false; }
             
-        if (rng == 2)
+        if (rng == 4 || rng == 5)
         {
             StartCoroutine(QuickImortal());
             horseStage.GetComponent<HorseStage>().StartLevel();
@@ -79,7 +82,7 @@ public class LevelManager : MonoBehaviour
             mp.GetSong(0);
         } else { player.GetComponent<PlayerAnimation>().horseStage = false; }
 
-        if (rng == 3)
+        if (rng == 6 || rng == 7)
         {
             StartCoroutine(QuickImortal());
             ballStage.GetComponent<BallStage>().StartLevel();
@@ -87,7 +90,7 @@ public class LevelManager : MonoBehaviour
             mp.GetSong(1);
         } else { player.GetComponent<PlayerAnimation>().ballStage = false; }
 
-        if (rng == 4)
+        if (rng == 8 || rng == 9)
         {
             swingStage.GetComponent<SwingStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().swingStage = true;
@@ -95,7 +98,7 @@ public class LevelManager : MonoBehaviour
             camera.player = follow.transform;
         } else { player.GetComponent<PlayerAnimation>().swingStage = false; camera.player = player.transform; }
 
-        if (rng == 5)
+        if (rng == 10 || rng == 11)
         {
             StartCoroutine(QuickImortal());
             clownStage.GetComponent<ClownStage>().StartLevel();
@@ -103,14 +106,17 @@ public class LevelManager : MonoBehaviour
             mp.GetSong(2);
         }
         else { player.GetComponent<PlayerAnimation>().clownStage = false;}
-        if (rng == 6)
+        if (rng == 12)
         {
             StartCoroutine(QuickImortal());
             bonusStage.GetComponent<BonusStage>().StartLevel();
             player.GetComponent<PlayerAnimation>().bonusStage = true;
-            mp.GetSong(2);
+            mp.GetSong(3);
+            haltButton.interactable = false;
+            player.GetComponent<PlayerMove>().speed = 5;
+            player.GetComponent<jump>().defaultJumpSpeed = 10.5f;
         }
-        else { player.GetComponent<PlayerAnimation>().bonusStage = false; }
+        else { player.GetComponent<PlayerAnimation>().bonusStage = false; haltButton.interactable = true; player.GetComponent<PlayerMove>().speed = 3; player.GetComponent<jump>().defaultJumpSpeed = 9; }
 
         player.GetComponent<PlayerAnimation>().UpdateAnim();
     }

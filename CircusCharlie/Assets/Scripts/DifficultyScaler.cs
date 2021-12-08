@@ -13,6 +13,7 @@ public class DifficultyScaler : MonoBehaviour
     public BallStage ball;
     public SwingStage swing;
     public ClownStage clown;
+    public BonusStage bonus;
 
     public AudioSource audios;
     public AudioClip wave;
@@ -48,7 +49,7 @@ public class DifficultyScaler : MonoBehaviour
             horse.distancemin = 9; horse.distancemax = 12;
 
             ball.obstacle = 4;
-            ball.distancemin = 29; ball.distancemax = 32;
+            ball.distancemin = 15; ball.distancemax = 23;
 
             swing.obstacle = 4;
             swing.distancemin = swing.begin; swing.distancemax = swing.begin + 1;
@@ -76,13 +77,41 @@ public class DifficultyScaler : MonoBehaviour
             horse.distancemin = 7; horse.distancemax = 13;
 
             ball.obstacle = 5;
-            ball.distancemin = 27; ball.distancemax = 33;
+            ball.distancemin = 10; ball.distancemax = 27;
 
             swing.obstacle = 5;
             swing.distancemin = swing.begin; swing.distancemax = swing.begin + 1;
 
             clown.obstacle = 13;
             clown.distancemin = clown.begin + 2; clown.distancemax = clown.begin + 3;
+        }
+        if (wavesSurvived > 15)
+        {
+            if (wavesSurvived == 16)
+            {
+                audios.clip = wave;
+                audios.Play();
+            }
+
+            fire.obstacle1 = 25; fire.obstacle2 = 6;
+            fire.distance1min = 5; fire.distance1max = 14;
+            fire.distance2min = 15; fire.distance2max = 24;
+
+            monkey.obstacle1 = 25; monkey.obstacle2 = 6;
+            monkey.distance1min = 5; monkey.distance1max = 14;
+            monkey.distance2min = 35; monkey.distance2max = 44;
+
+            horse.obstacle = 25;
+            horse.distancemin = 5; horse.distancemax = 14;
+
+            ball.obstacle = 6;
+            ball.distancemin = 5; ball.distancemax = 30;
+
+            swing.obstacle = 6;
+            swing.distancemin = swing.begin; swing.distancemax = swing.begin + 1;
+
+            clown.obstacle = 15;
+            clown.distancemin = clown.begin + 3; clown.distancemax = clown.begin + 4;
         }
     }
 
@@ -110,5 +139,8 @@ public class DifficultyScaler : MonoBehaviour
 
         clown.obstacle = clown.platformsToSpawn;
         clown.distancemin = clown.begin; clown.distancemax = clown.begin + 1;
+
+        bonus.obstacle1 = bonus.moneyToSpawn;
+        bonus.distance1min = bonus.begin1; bonus.distance1max = bonus.begin1 + 1;
     }
 }

@@ -33,6 +33,8 @@ public class jump : MonoBehaviour
     public AudioSource audios;
     public AudioClip jumpSound;
 
+    [SerializeField]private Animator monkey;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,6 +54,7 @@ public class jump : MonoBehaviour
         }
         gameObject.GetComponent<PlayerAnimation>().anim.SetBool("isMountJumping", onGround);
         anim.SetBool("isGrounded", onGround);
+        monkey.SetBool("isJumping", !onGround);
 
         if (onGround && gameObject.GetComponent<PlayerAnimation>().ballStage == true && hasBall == false && ballTimer > 1)
             gameObject.GetComponent<PlayerProgress>().Die();
@@ -106,7 +109,7 @@ public class jump : MonoBehaviour
 
         if (hasBall && gameObject.GetComponent<PlayerAnimation>().ballStage == true)
         {
-            GameObject ball = ObjectPooler.Instance.SpawnFromPool("Ball", new Vector3(ballPosition.position.x - 1, ballPosition.position.y, 0), Quaternion.Euler(0, 0, 0));
+            GameObject ball = ObjectPooler.Instance.SpawnFromPool("DropBall", new Vector3(ballPosition.position.x - 1, ballPosition.position.y, 0), Quaternion.Euler(0, 0, 0));
             ball.layer = 2;
             ball.GetComponent<Rigidbody2D>().AddForce(Vector2.left * jumpSpeed, ForceMode2D.Impulse);
             ball.GetComponent<Animator>().SetTrigger("Kicked");

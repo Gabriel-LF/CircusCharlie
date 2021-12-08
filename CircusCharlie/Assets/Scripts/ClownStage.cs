@@ -22,7 +22,7 @@ public class ClownStage : MonoBehaviour
 
     public void StartLevel()
     {
-        StartCoroutine(PlatformAnim());
+        PlatformAnim();
         currentHeight = 2.5f;
 
         spawnDistance = LevelManager.Instance.playerPosition + 15;
@@ -53,12 +53,11 @@ public class ClownStage : MonoBehaviour
         else ObjectPooler.Instance.SpawnFromPool("KnifeClown", new Vector3(spawnDistance + 2.65f, 0, 0), Quaternion.Euler(0, 0, 0));
     }
 
-    IEnumerator PlatformAnim()
+    void PlatformAnim()
     {
         startingPlatform.gameObject.SetActive(false);
         startingPlatform.gameObject.SetActive(true);
         startingPlatform.position = new Vector2(player.position.x, startingPlatform.position.y);
-        yield return new WaitForSeconds(0.5f);
         ObjectPooler.Instance.SpawnFromPool("Confete", new Vector3(player.position.x + 1, player.position.y, player.position.z), Quaternion.Euler(0, 0, 0));
         player.position = new Vector2(player.position.x, 4.13f);
         ObjectPooler.Instance.SpawnFromPool("Confete", new Vector3(player.position.x + 1, player.position.y, player.position.z), Quaternion.Euler(0, 0, 0));

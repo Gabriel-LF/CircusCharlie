@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class BonusStage : MonoBehaviour
 {
-    public int rng;
-    public string randomTag;
     public int moneyToSpawn;
     public float begin1;
 
@@ -30,11 +28,11 @@ public class BonusStage : MonoBehaviour
             i++;
         } while (i < obstacle1);
         if (i >= obstacle1)
-            ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance - 10, 0, 0), Quaternion.Euler(0, 0, 0));
+            ObjectPooler.Instance.SpawnFromPool("StageChanger", new Vector3(spawnDistance + distance1min, 0, 0), Quaternion.Euler(0, 0, 0));
     }
 
     public void SpawnObstacle()
     {
-        ObjectPooler.Instance.SpawnFromPool(randomTag, new Vector3(spawnDistance, 3, 0), Quaternion.Euler(0, 0, 0));
+        ObjectPooler.Instance.SpawnFromPool("Money", new Vector3(spawnDistance, Random.Range(0.5f,6f), 0), Quaternion.Euler(0, 0, 0));
     }
 }
